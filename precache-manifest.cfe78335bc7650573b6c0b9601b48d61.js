@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "de1f1c1f8a7b03a8b41608fbe2955847",
+    "revision": "392baaaf36501a23101656f9d88ec927",
     "url": "/arctec-website/index.html"
   },
   {
-    "revision": "c6c2cb341264ade73bf2",
+    "revision": "aed376f1c97a88edaf01",
     "url": "/arctec-website/static/css/main.ae828032.chunk.css"
   },
   {
-    "revision": "0b2309594f3a79efb86e",
-    "url": "/arctec-website/static/js/2.ea5f2831.chunk.js"
+    "revision": "abda83fd66e8cefdc958",
+    "url": "/arctec-website/static/js/2.923382d3.chunk.js"
   },
   {
-    "revision": "c6c2cb341264ade73bf2",
-    "url": "/arctec-website/static/js/main.71f03175.chunk.js"
+    "revision": "aed376f1c97a88edaf01",
+    "url": "/arctec-website/static/js/main.b3af2aea.chunk.js"
   },
   {
     "revision": "065d2b765e04d75f67ca",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "01207254c6b273c9d3bbf74d789b8b6e",
     "url": "/arctec-website/static/media/hero-background.01207254.jpeg"
+  },
+  {
+    "revision": "4614480f1828eba30b8a4c86de78179c",
+    "url": "/arctec-website/static/media/iphoneX.4614480f.png"
   },
   {
     "revision": "b8a0522eac69014c8a8a62cff9553a63",
