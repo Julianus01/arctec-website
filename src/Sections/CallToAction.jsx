@@ -21,10 +21,10 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
   margin-top: 20vh;
-  margin-bottom: 20vh;
   width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
 
   background-image: linear-gradient(
       180deg,

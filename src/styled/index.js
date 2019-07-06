@@ -6,6 +6,10 @@ const Title = styled.h1`
   color: white;
   margin: 0;
   margin-bottom: 40px;
+  
+  @media screen and (max-width: 650px) {
+    font-size: 40px;
+  }
 `
 
 const Subtitle = styled.h2`
@@ -13,17 +17,25 @@ const Subtitle = styled.h2`
   color: white;
   margin: 0;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 650px) {
+    font-size: 16px;
+  }
 `
 
 const Text = styled.p`
   font-size: 20px;
   color: #afafaf;
   margin: 0;
+
+  @media screen and (max-width: 650px) {
+    font-size: 10px;
+  }
 `
 
 const Button = styled.button`
   color: white;
-  background-color: black;
+  background-color: transparent;
   font-size: 25px;
   padding: 20px 80px;
 
@@ -38,6 +50,11 @@ const Button = styled.button`
   :hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  @media screen and (max-width: 650px) {
+    font-size: 16px;
+    padding: 10px 40px;
   }
 `
 

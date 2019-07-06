@@ -27,6 +27,7 @@ const Section = styled.section`
   height: 100vh;
   width: 100%;
   position: relative;
+  margin-bottom: 10vh;
 `
 
 const BackgroundImage = styled.div`
@@ -56,7 +57,8 @@ const CompanyName = styled.h1`
     font-size: 100px;
   }
   @media screen and (max-width: 650px) {
-    font-size: 50px;
+    font-size: 55px;
+    color: #8C8C8C;
   }
 `
 

@@ -8,16 +8,18 @@ import CallToAction from './Sections/CallToAction'
 import Contact from './Sections/Contact'
 import BigWord from './Sections/BigWord'
 import Qualities from './Sections/Qualities'
+import IphoneX from './Sections/IphoneX'
 
 const App = () => (
   <React.Fragment>
     <Hero />
     <Vision />
     <Services />
+    <Qualities />
     <CallToAction />
     <BigWord word="Quality." />
-    <Qualities />
-    <Contact />
+    <IphoneX />
+    {/* <Contact /> */}
   </React.Fragment>
 )
 

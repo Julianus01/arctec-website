@@ -20,11 +20,12 @@ export default Services
 const Section = styled.section`
   height: 100vh;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40vh;
 `
 
 const Wrapper = styled.div`
@@ -39,6 +40,7 @@ const Content = styled.div`
   flex: 1;
   background-color: rgba(255, 255, 255, 0.1);
   margin-bottom: 40px;
+  border-radius: 10px;
 `
 
 const Footer = styled.div`

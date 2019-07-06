@@ -6,7 +6,7 @@ const VisionSection = () => (
   <Section>
     <Title>Vision</Title>
 
-    <Text>
+    <Text style={{ maxWidth: 1000 }}>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industry's standard dummy text ever since the
       1500s, when an unknown printer took a galley of type and scrambled it to
@@ -22,12 +22,12 @@ const VisionSection = () => (
 export default VisionSection
 
 const Section = styled.section`
-  height: 100vh;
-  width: 70%;
-  max-width: 1000px;
+  width: 90%;
+  max-width: 1400px;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
+  margin-bottom: 40vh;
 `
