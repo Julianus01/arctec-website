@@ -67,8 +67,12 @@ const Container = styled.div`
 `
 
 const IphoneImage = styled.img.attrs({ src: IphoneXImg })`
-  height: 90vh;
+  height: 80vh;
   width: auto;
+
+  @media screen and (max-width: 768px) {
+    height: 90vh;
+  }
 `
 
 const Absolute = styled.div`

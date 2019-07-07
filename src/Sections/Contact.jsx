@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade'
 
 const Contact = () => {
   return (
-    <Fade bottom>
+    <Fade>
       <Section>
         <Wrapper>
           <Title>Work with us</Title>

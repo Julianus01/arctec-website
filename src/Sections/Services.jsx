@@ -7,7 +7,7 @@ const Services = () => {
   const [selectedTab, setSelectedTab] = useState('web')
 
   return (
-    <Fade bottom cascade>
+    <Fade>
       <Section>
         <Wrapper>
           <Title>Services</Title>
@@ -49,7 +49,7 @@ const Section = styled.section`
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 40vh;
+  margin-bottom: 20vh;
 
   @media screen and (max-width: 768px) {
     margin-bottom: 10vh;

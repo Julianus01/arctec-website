@@ -1,10 +1,13 @@
 import React from 'react'
 import { Title } from '../styled'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 const BigWord = ({ word }) => (
   <Section>
-    <Title>{word}</Title>
+    <Fade>
+      <Title>{word}</Title>
+    </Fade>
   </Section>
 )
 

@@ -39,8 +39,8 @@ const Qualities = () => {
   const size = useIconSize()
 
   return (
-    <Fade bottom>
-      <Section>
+    <Section>
+      <Fade bottom>
         <Grid>
           <Quality>
             <Anchor size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
@@ -93,8 +93,8 @@ const Qualities = () => {
             <Description>Top quality products, delivered on time.</Description>
           </Quality>
         </Grid>
-      </Section>
-    </Fade>
+      </Fade>
+    </Section>
   )
 }
 

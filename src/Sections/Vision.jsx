@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade'
 
 const VisionSection = () => (
   <Section>
-    <Fade bottom cascade>
+    <Fade bottom>
       <Title>Vision</Title>
       <Text style={{ maxWidth: 1000 }}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -27,7 +27,7 @@ const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   color: white;
-  margin-bottom: 40vh;
+  margin-bottom: 20vh;
 
   @media screen and (max-width: 768px) {
     margin-bottom: 10vh;
