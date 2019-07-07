@@ -30,4 +30,8 @@ const Section = styled.section`
   justify-content: center;
   color: white;
   margin-bottom: 40vh;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 10vh;
+  }
 `

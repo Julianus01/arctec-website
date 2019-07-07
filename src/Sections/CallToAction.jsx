@@ -1,15 +1,14 @@
 import React from 'react'
-import { Title, Button } from '../styled'
+import { Title } from '../styled'
 import styled from 'styled-components'
 import roadImageSrc from '../assets/images/road.jpg'
 
 const CallToAction = () => (
   <Section>
     <Content>
-      <Title style={{ textAlign: 'center', marginBottom: 60 }}>
+      <Title style={{ textAlign: 'center', marginBottom: 0 }}>
         Steady. Surely. Ongoing
       </Title>
-      <Button>Works with us</Button>
     </Content>
   </Section>
 )

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Anchor, Link2, Search, Crosshair, Heart, Box } from 'react-feather'
 import { Subtitle, Text } from '../styled'
-import iphoneXImg from '../assets/images/iphoneX.png'
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window
@@ -32,7 +31,7 @@ function useWindowDimensions() {
 function useIconSize() {
   const { width } = useWindowDimensions()
 
-  return width > 650 ? 60 : 40
+  return width > 768 ? 60 : 40
 }
 
 const Qualities = () => {
@@ -88,15 +87,6 @@ const Qualities = () => {
           <Description>Top quality products, delivered on time.</Description>
         </Quality>
       </Grid>
-
-      {/* <Extra style={{ flex: 1 }}>
-        <img
-          src={iphoneXImg}
-          style={{ maxWidth: 200, width: '100%', height: 'auto' }} alt="loading..."
-        />
-  
-        <Title>Well Designed</Title>
-      </Extra> */}
     </Section>
   )
 }
@@ -114,18 +104,12 @@ const Section = styled.section`
 const Grid = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 200px;
+  /* margin-bottom: 200px; */
   flex-wrap: wrap;
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 768px) {
     justify-content: flex-start;
   }
-`
-
-const Extra = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
 `
 
 const Description = styled(Text)`

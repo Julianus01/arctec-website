@@ -6,8 +6,8 @@ const Title = styled.h1`
   color: white;
   margin: 0;
   margin-bottom: 40px;
-  
-  @media screen and (max-width: 650px) {
+
+  @media screen and (max-width: 768px) {
     font-size: 40px;
   }
 `
@@ -18,7 +18,7 @@ const Subtitle = styled.h2`
   margin: 0;
   margin-bottom: 20px;
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 768px) {
     font-size: 16px;
   }
 `
@@ -28,8 +28,8 @@ const Text = styled.p`
   color: #afafaf;
   margin: 0;
 
-  @media screen and (max-width: 650px) {
-    font-size: 10px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
   }
 `
 
@@ -52,7 +52,7 @@ const Button = styled.button`
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 768px) {
     font-size: 16px;
     padding: 10px 40px;
   }
@@ -69,8 +69,26 @@ const InputContainer = styled.div`
   flex-direction: column;
 `
 
+const TextareaStyled = styled.textarea`
+  background-color: #1a1a1a;
+  border: 0;
+  color: white;
+  padding: 13px 20px;
+  font-size: 20px;
+  height: 100%;
+  resize: none;
+
+  ::placeholder {
+    font-style: italic;
+  }
+
+  :focus {
+    outline: none;
+  }
+`
+
 const InputStyled = styled.input`
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
   border: 0;
   color: white;
   padding: 13px 20px;
@@ -88,8 +106,15 @@ const InputStyled = styled.input`
 const Input = ({ label, placeholder, ...rest }) => (
   <InputContainer {...rest}>
     <Label>{label}</Label>
-    <InputStyled placeholder={placeholder} type="text" />
+    <InputStyled placeholder={placeholder} type='text' />
   </InputContainer>
 )
 
-export { Title, Subtitle, Text, Button, Input }
+const Textarea = ({ label, placeholder, ...rest }) => (
+  <InputContainer {...rest}>
+    <Label>{label}</Label>
+    <TextareaStyled placeholder={placeholder} />
+  </InputContainer>
+)
+
+export { Title, Subtitle, Text, Button, Input, Textarea }

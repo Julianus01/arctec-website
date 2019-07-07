@@ -19,13 +19,17 @@ export default Services
 
 const Section = styled.section`
   height: 100vh;
-  width: 100%;
+  width: 90%;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
   margin-bottom: 40vh;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 10vh;
+  }
 `
 
 const Wrapper = styled.div`

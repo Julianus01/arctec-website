@@ -11,7 +11,9 @@ const Hero = () => (
         <Dash />
       </MottoWrapper>
 
-      <CompanyName> ARCTEC </CompanyName>
+      <div>
+        <CompanyName>ARCTEC</CompanyName>
+      </div>
 
       {/* <ArrowDiv>
         <Arrow />
@@ -49,6 +51,7 @@ const CompanyName = styled.h1`
   letter-spacing: 0.3em;
   font-size: 200px;
   color: rgba(255, 255, 255, 0.55);
+  margin-left: 10px;
 
   @media screen and (max-width: 1300px) {
     font-size: 150px;
@@ -56,9 +59,9 @@ const CompanyName = styled.h1`
   @media screen and (max-width: 1000px) {
     font-size: 100px;
   }
-  @media screen and (max-width: 650px) {
-    font-size: 55px;
-    color: #8C8C8C;
+  @media screen and (max-width: 768px) {
+    font-size: 50px;
+    color: #8c8c8c;
   }
 `
 
@@ -76,7 +79,7 @@ const Motto = styled.h2`
   margin-left: 10px;
   margin-right: 10px;
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 768px) {
     font-size: 14px;
   }
   @media screen and (max-width: 400px) {
@@ -90,7 +93,7 @@ const Dash = styled.div`
   width: 40px;
   margin-top: 5px;
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 768px) {
     width: 30px;
     height: 1.5px;
     margin-top: 3px;

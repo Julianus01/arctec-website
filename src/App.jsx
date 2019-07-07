@@ -19,7 +19,7 @@ const App = () => (
     <CallToAction />
     <BigWord word="Quality." />
     <IphoneX />
-    {/* <Contact /> */}
+    <Contact />
   </React.Fragment>
 )
 
