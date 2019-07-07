@@ -21,7 +21,10 @@ const IphoneX = () => (
           </Card>
 
           <Card>
-            <Text>Hit me up so we can have a chat</Text>
+            <Text>
+              Hit me up so we can have a chat Hit me up so we can have a chat
+              Hit me up so we can have a chat
+            </Text>
           </Card>
         </Content>
 
@@ -76,9 +79,11 @@ const Absolute = styled.div`
 `
 
 const Card = styled.div`
-  display: flex;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 10px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-radius: 10px;
   margin: 10px 0;
 `

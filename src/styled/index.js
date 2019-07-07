@@ -62,6 +62,10 @@ const Label = styled.label`
   font-size: 20px;
   color: #afafaf;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `
 
 const InputContainer = styled.div`
@@ -78,6 +82,10 @@ const TextareaStyled = styled.textarea`
   height: 100%;
   resize: none;
 
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+
   ::placeholder {
     font-style: italic;
   }
@@ -93,6 +101,10 @@ const InputStyled = styled.input`
   color: white;
   padding: 13px 20px;
   font-size: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 
   ::placeholder {
     font-style: italic;

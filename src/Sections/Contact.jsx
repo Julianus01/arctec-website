@@ -43,7 +43,7 @@ const Contact = () => {
 export default Contact
 
 const Section = styled.section`
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 90%;
   max-width: 1400px;
   margin-left: auto;
