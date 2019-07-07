@@ -2,6 +2,7 @@ import React from 'react'
 import { Title } from '../styled'
 import styled from 'styled-components'
 import roadImageSrc from '../assets/images/road.jpg'
+import { Controller, Scene } from 'react-scrollmagic'
 
 const CallToAction = () => (
   <Section>
@@ -20,10 +21,15 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 60vh;
+  height: calc(var(--vh, 1vh) * 60);
   margin-top: 20vh;
+  margin-top: calc(var(--vh, 1vh) * 20);
+  margin-bottom: 20vh;
+  margin-bottom: calc(var(--vh, 1vh) * 20);
   width: 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
+
+  opacity: ${({ opacity }) => opacity};
 
   background-image: linear-gradient(
       180deg,

@@ -28,8 +28,10 @@ const Section = styled.section`
   justify-content: center;
   color: white;
   margin-bottom: 20vh;
+  margin-bottom: calc(var(--vh, 1vh) * 20);
 
   @media screen and (max-width: 768px) {
     margin-bottom: 10vh;
+    margin-bottom: calc(var(--vh, 1vh) * 10);
   }
 `

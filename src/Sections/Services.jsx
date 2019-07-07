@@ -43,6 +43,7 @@ export default Services
 
 const Section = styled.section`
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 90%;
   max-width: 1400px;
   margin-left: auto;
@@ -50,9 +51,11 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   margin-bottom: 20vh;
+  margin-bottom: calc(var(--vh, 1vh) * 20);
 
   @media screen and (max-width: 768px) {
     margin-bottom: 10vh;
+    margin-bottom: calc(var(--vh, 1vh) * 10);
   }
 `
 
@@ -60,7 +63,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 6vh;
+  padding-top: calc(var(--vh, 1vh) * 6);
   padding-bottom: 6vh;
+  padding-bottom: calc(var(--vh, 1vh) * 6);
   flex: 1;
 `
 

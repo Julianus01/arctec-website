@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Anchor, Link2, Search, Crosshair, Heart, Box } from 'react-feather'
 import { Subtitle, Text } from '../styled'

@@ -49,14 +49,17 @@ export default IphoneX
 
 const Section = styled.section`
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 40vh;
+  margin-bottom: calc(var(--vh, 1vh) * 40);
 
   @media screen and (max-width: 768px) {
     margin-bottom: 10vh;
+    margin-bottom: calc(var(--vh, 1vh) * 10);
   }
 `
 
@@ -68,10 +71,12 @@ const Container = styled.div`
 
 const IphoneImage = styled.img.attrs({ src: IphoneXImg })`
   height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   width: auto;
 
   @media screen and (max-width: 768px) {
     height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
   }
 `
 

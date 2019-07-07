@@ -27,8 +27,10 @@ export default Hero
 
 const Section = styled.section`
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   margin-bottom: 10vh;
+  margin-bottom: calc(var(--vh, 1vh) * 10);
   display: flex;
   flex-direction: column;
   align-items: center;

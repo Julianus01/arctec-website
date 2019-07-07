@@ -15,6 +15,7 @@ export default Loading
 
 const Container = styled.div`
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   display: flex;
   align-items: center;

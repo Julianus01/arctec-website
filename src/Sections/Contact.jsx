@@ -43,7 +43,6 @@ const Contact = () => {
 export default Contact
 
 const Section = styled.section`
-  /* min-height: 100vh; */
   width: 90%;
   max-width: 1400px;
   margin-left: auto;
@@ -56,7 +55,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 6vh;
+  padding-top: calc(var(--vh, 1vh) * 6);
   padding-bottom: 6vh;
+  padding-bottom: calc(var(--vh, 1vh) * 6);
   flex: 1;
 `
 
