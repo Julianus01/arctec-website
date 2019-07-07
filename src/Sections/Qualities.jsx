@@ -40,8 +40,8 @@ const Qualities = () => {
 
   return (
     <Section>
-      <Fade bottom>
-        <Grid>
+      <Grid>
+        <Fade bottom>
           <Quality>
             <Anchor size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
             <Subtitle style={{ marginBottom: 10 }}>Weight</Subtitle>
@@ -49,7 +49,9 @@ const Qualities = () => {
               We lift the load that you will never have to.
             </Description>
           </Quality>
+        </Fade>
 
+        <Fade bottom>
           <Quality>
             <Link2 size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
             <Subtitle style={{ marginBottom: 10 }}>Commucation</Subtitle>
@@ -58,7 +60,9 @@ const Qualities = () => {
               success line.
             </Description>
           </Quality>
+        </Fade>
 
+        <Fade bottom>
           <Quality>
             <Search size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
             <Subtitle style={{ marginBottom: 10 }}>Proactive</Subtitle>
@@ -66,7 +70,9 @@ const Qualities = () => {
               In constant search of your company’s improvement.
             </Description>
           </Quality>
+        </Fade>
 
+        <Fade bottom>
           <Quality>
             <Crosshair
               size={size}
@@ -78,7 +84,9 @@ const Qualities = () => {
               Aiming at success with the discipline of achieving it.
             </Description>
           </Quality>
+        </Fade>
 
+        <Fade bottom>
           <Quality>
             <Heart size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
             <Subtitle style={{ marginBottom: 10 }}>Warm</Subtitle>
@@ -86,14 +94,16 @@ const Qualities = () => {
               Products that users will love, an unforgettable experience.
             </Description>
           </Quality>
+        </Fade>
 
+        <Fade bottom>
           <Quality>
             <Box size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
             <Subtitle style={{ marginBottom: 10 }}>Quality</Subtitle>
             <Description>Top quality products, delivered on time.</Description>
           </Quality>
-        </Grid>
-      </Fade>
+        </Fade>
+      </Grid>
     </Section>
   )
 }
@@ -111,7 +121,6 @@ const Section = styled.section`
 const Grid = styled.div`
   display: flex;
   justify-content: center;
-  /* margin-bottom: 200px; */
   flex-wrap: wrap;
 
   @media screen and (max-width: 768px) {

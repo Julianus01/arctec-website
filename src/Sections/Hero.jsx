@@ -13,9 +13,9 @@ const Hero = () => {
           <Dash />
         </MottoWrapper>
 
-        <Content>
+        <CenterAbsolute>
           <CompanyName>ARCTEC</CompanyName>
-        </Content>
+        </CenterAbsolute>
 
         <BackgroundImage />
       </Section>
@@ -51,10 +51,15 @@ const BackgroundImage = styled.div`
   justify-content: center;
 `
 
-const Content = styled.div`
-  flex: 1;
-  align-items: center;
+const CenterAbsolute = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
 `
 
@@ -118,31 +123,4 @@ const Dash = styled.div`
     height: 1px;
     margin-top: 1px;
   }
-`
-
-const ArrowDiv = styled.div`
-  font-size: 0;
-  position: absolute;
-  bottom: 5%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-`
-
-const Arrow = styled.div`
-  height: 40px;
-  width: 40px;
-  border-style: solid;
-  border-color: rgba(255, 255, 255, 0.3);
-  border-width: 0px 1px 1px 0px;
-  transform: rotate(45deg);
-  transition: border-width 150ms ease-in-out;
-  position: absolute;
-`
-const ArrowDash = styled.div`
-  font-size: 0;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
-  width: 60px;
-  margin-bottom: 10px;
 `
