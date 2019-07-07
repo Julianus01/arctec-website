@@ -1,112 +1,77 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Anchor, Link2, Search, Crosshair, Heart, Box } from 'react-feather'
 import { Subtitle, Text } from '../styled'
 import Fade from 'react-reveal/Fade'
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window
-  return {
-    width,
-    height
-  }
-}
+const Qualities = () => (
+  <Section>
+    <Grid>
+      <Fade bottom>
+        <Quality>
+          <Anchor color='#E5E5E5' style={{ marginBottom: 20 }} />
+          <Subtitle style={{ marginBottom: 10 }}>Weight</Subtitle>
+          <Description>
+            We lift the load that you will never have to.
+          </Description>
+        </Quality>
+      </Fade>
 
-function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions()
-  )
+      <Fade bottom>
+        <Quality>
+          <Link2 color='#E5E5E5' style={{ marginBottom: 20 }} />
+          <Subtitle style={{ marginBottom: 10 }}>Commucation</Subtitle>
+          <Description>
+            In any collaboration, communication landed the business on the
+            success line.
+          </Description>
+        </Quality>
+      </Fade>
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions())
-    }
+      <Fade bottom>
+        <Quality>
+          <Search color='#E5E5E5' style={{ marginBottom: 20 }} />
+          <Subtitle style={{ marginBottom: 10 }}>Proactive</Subtitle>
+          <Description>
+            In constant search of your company’s improvement.
+          </Description>
+        </Quality>
+      </Fade>
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+      <Fade bottom>
+        <Quality>
+          <Crosshair
+            //
+            color='#E5E5E5'
+            style={{ marginBottom: 20 }}
+          />
+          <Subtitle style={{ marginBottom: 10 }}>Clear Target</Subtitle>
+          <Description>
+            Aiming at success with the discipline of achieving it.
+          </Description>
+        </Quality>
+      </Fade>
 
-  return windowDimensions
-}
+      <Fade bottom>
+        <Quality>
+          <Heart color='#E5E5E5' style={{ marginBottom: 20 }} />
+          <Subtitle style={{ marginBottom: 10 }}>Warm</Subtitle>
+          <Description>
+            Products that users will love, an unforgettable experience.
+          </Description>
+        </Quality>
+      </Fade>
 
-function useIconSize() {
-  const { width } = useWindowDimensions()
-
-  return width > 768 ? 60 : 40
-}
-
-const Qualities = () => {
-  const size = useIconSize()
-
-  return (
-    <Section>
-      <Grid>
-        <Fade bottom>
-          <Quality>
-            <Anchor size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
-            <Subtitle style={{ marginBottom: 10 }}>Weight</Subtitle>
-            <Description>
-              We lift the load that you will never have to.
-            </Description>
-          </Quality>
-        </Fade>
-
-        <Fade bottom>
-          <Quality>
-            <Link2 size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
-            <Subtitle style={{ marginBottom: 10 }}>Commucation</Subtitle>
-            <Description>
-              In any collaboration, communication landed the business on the
-              success line.
-            </Description>
-          </Quality>
-        </Fade>
-
-        <Fade bottom>
-          <Quality>
-            <Search size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
-            <Subtitle style={{ marginBottom: 10 }}>Proactive</Subtitle>
-            <Description>
-              In constant search of your company’s improvement.
-            </Description>
-          </Quality>
-        </Fade>
-
-        <Fade bottom>
-          <Quality>
-            <Crosshair
-              size={size}
-              color='#E5E5E5'
-              style={{ marginBottom: 20 }}
-            />
-            <Subtitle style={{ marginBottom: 10 }}>Clear Target</Subtitle>
-            <Description>
-              Aiming at success with the discipline of achieving it.
-            </Description>
-          </Quality>
-        </Fade>
-
-        <Fade bottom>
-          <Quality>
-            <Heart size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
-            <Subtitle style={{ marginBottom: 10 }}>Warm</Subtitle>
-            <Description>
-              Products that users will love, an unforgettable experience.
-            </Description>
-          </Quality>
-        </Fade>
-
-        <Fade bottom>
-          <Quality>
-            <Box size={size} color='#E5E5E5' style={{ marginBottom: 20 }} />
-            <Subtitle style={{ marginBottom: 10 }}>Quality</Subtitle>
-            <Description>Top quality products, delivered on time.</Description>
-          </Quality>
-        </Fade>
-      </Grid>
-    </Section>
-  )
-}
+      <Fade bottom>
+        <Quality>
+          <Box color='#E5E5E5' style={{ marginBottom: 20 }} />
+          <Subtitle style={{ marginBottom: 10 }}>Quality</Subtitle>
+          <Description>Top quality products, delivered on time.</Description>
+        </Quality>
+      </Fade>
+    </Grid>
+  </Section>
+)
 
 export default Qualities
 
@@ -136,4 +101,14 @@ const Quality = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
+
+  svg {
+    width: 60px;
+    height: 60px;
+
+    @media screen and (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `
