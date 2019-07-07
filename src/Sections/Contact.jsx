@@ -1,42 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Title, Button, Input, Textarea } from '../styled'
+import Fade from 'react-reveal/Fade'
 
 const Contact = () => {
   return (
-    <Section>
-      <Wrapper>
-        <Title>Work with us</Title>
+    <Fade bottom>
+      <Section>
+        <Wrapper>
+          <Title>Work with us</Title>
 
-        <Content>
-          <PersonalInformationWrapper>
-            <Input
-              style={{ marginBottom: 20 }}
-              label='Full Name'
-              placeholder='Name...'
-            />
-            <Input
-              style={{ marginBottom: 20 }}
-              label='Email'
-              placeholder='Email...'
-            />
-            <Input label='Phone Number' placeholder='Phone Number...' />
-          </PersonalInformationWrapper>
+          <Content>
+            <PersonalInformationWrapper>
+              <Input
+                style={{ marginBottom: 20 }}
+                label='Full Name'
+                placeholder='Name...'
+              />
+              <Input
+                style={{ marginBottom: 20 }}
+                label='Email'
+                placeholder='Email...'
+              />
+              <Input label='Phone Number' placeholder='Phone Number...' />
+            </PersonalInformationWrapper>
 
-          <MessageWrapper>
-            <Textarea
-              style={{ height: '100%' }}
-              label='Message'
-              placeholder='Description...'
-            />
-          </MessageWrapper>
+            <MessageWrapper>
+              <Textarea
+                style={{ height: '100%' }}
+                label='Message'
+                placeholder='Description...'
+              />
+            </MessageWrapper>
 
-          <Footer>
-            <Button>Send</Button>
-          </Footer>
-        </Content>
-      </Wrapper>
-    </Section>
+            <Footer>
+              <Button>Send</Button>
+            </Footer>
+          </Content>
+        </Wrapper>
+      </Section>
+    </Fade>
   )
 }
 

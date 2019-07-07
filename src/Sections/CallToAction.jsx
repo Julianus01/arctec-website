@@ -2,15 +2,18 @@ import React from 'react'
 import { Title } from '../styled'
 import styled from 'styled-components'
 import roadImageSrc from '../assets/images/road.jpg'
+import Fade from 'react-reveal/Fade'
 
 const CallToAction = () => (
-  <Section>
-    <Content>
-      <Title style={{ textAlign: 'center', marginBottom: 0 }}>
-        Steady. Surely. Ongoing
-      </Title>
-    </Content>
-  </Section>
+  <Fade bottom>
+    <Section>
+      <Content>
+        <Title style={{ textAlign: 'center', marginBottom: 0 }}>
+          Steady. Surely. Ongoing
+        </Title>
+      </Content>
+    </Section>
+  </Fade>
 )
 
 export default CallToAction

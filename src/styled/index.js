@@ -38,6 +38,7 @@ const Button = styled.button`
   background-color: transparent;
   font-size: 25px;
   padding: 20px 80px;
+  border: 1px solid white;
 
   :focus {
     outline: none;

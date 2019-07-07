@@ -1,49 +1,61 @@
 import React from 'react'
 import styled from 'styled-components'
 import heroImgPath from '../assets/images/hero-background.jpeg'
+import Fade from 'react-reveal/Fade'
 
-const Hero = () => (
-  <Section>
-    <BackgroundImage>
-      <MottoWrapper>
-        <Dash />
-        <Motto>A software company, built for your business</Motto>
-        <Dash />
-      </MottoWrapper>
+const Hero = () => {
+  return (
+    <Fade>
+      <Section>
+        <MottoWrapper>
+          <Dash />
+          <Motto>A software company, built for your business</Motto>
+          <Dash />
+        </MottoWrapper>
 
-      <div>
-        <CompanyName>ARCTEC</CompanyName>
-      </div>
+        <Content>
+          <CompanyName>ARCTEC</CompanyName>
+        </Content>
 
-      {/* <ArrowDiv>
-        <Arrow />
-        <ArrowDash />
-      </ArrowDiv> */}
-    </BackgroundImage>
-  </Section>
-)
+        <BackgroundImage />
+      </Section>
+    </Fade>
+  )
+}
 
 export default Hero
 
 const Section = styled.section`
   height: 100vh;
   width: 100%;
-  position: relative;
   margin-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const BackgroundImage = styled.div`
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, #000000 100%),
     url(${() => heroImgPath});
-  height: 100%;
-  width: 100%;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+const Content = styled.div`
+  flex: 1;
+  align-items: center;
+  display: flex;
+  z-index: 1;
 `
 
 const CompanyName = styled.h1`
@@ -66,14 +78,17 @@ const CompanyName = styled.h1`
 `
 
 const MottoWrapper = styled.div`
-  position: absolute;
-  top: 5%;
   display: flex;
   align-items: center;
+  margin-top: 40px;
+  z-index: 1;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 20px;
+  }
 `
 
 const Motto = styled.h2`
-  /* font-family: GlacialIndifference-Regular; */
   font-size: 20px;
   color: rgba(255, 255, 255, 0.3);
   margin-left: 10px;

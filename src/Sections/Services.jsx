@@ -1,38 +1,41 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Title, TabButton } from '../styled'
+import Fade from 'react-reveal/Fade'
 
 const Services = () => {
   const [selectedTab, setSelectedTab] = useState('web')
 
   return (
-    <Section>
-      <Wrapper>
-        <Title>Services</Title>
+    <Fade bottom cascade>
+      <Section>
+        <Wrapper>
+          <Title>Services</Title>
 
-        <Content>
-          {selectedTab === 'web' && <div>WEB</div>}
+          <Content>
+            {selectedTab === 'web' && <div>WEB</div>}
 
-          {selectedTab === 'mobile' && <div>MOBILE</div>}
-        </Content>
+            {selectedTab === 'mobile' && <div>MOBILE</div>}
+          </Content>
 
-        <Footer>
-          <TabButton
-            active={selectedTab === 'web'}
-            onClick={() => setSelectedTab('web')}
-          >
-            Web
-          </TabButton>
+          <Footer>
+            <TabButton
+              active={selectedTab === 'web'}
+              onClick={() => setSelectedTab('web')}
+            >
+              Web
+            </TabButton>
 
-          <TabButton
-            active={selectedTab === 'mobile'}
-            onClick={() => setSelectedTab('mobile')}
-          >
-            Mobile
-          </TabButton>
-        </Footer>
-      </Wrapper>
-    </Section>
+            <TabButton
+              active={selectedTab === 'mobile'}
+              onClick={() => setSelectedTab('mobile')}
+            >
+              Mobile
+            </TabButton>
+          </Footer>
+        </Wrapper>
+      </Section>
+    </Fade>
   )
 }
 
