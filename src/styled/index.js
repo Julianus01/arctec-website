@@ -129,4 +129,55 @@ const Textarea = ({ label, placeholder, ...rest }) => (
   </InputContainer>
 )
 
-export { Title, Subtitle, Text, Button, Input, Textarea }
+const TabPressable = styled.button`
+  color: ${({ active }) => (active ? 'white' : '#373737')};
+  border: 0;
+  background-color: transparent;
+  font-size: 25px;
+  padding: 20px 80px;
+  font-weight: bold;
+
+  :focus {
+    outline: none;
+  }
+
+  :active {
+    border-style: solid;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    padding: 10px 40px;
+  }
+`
+
+const TabButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Dot = styled.div`
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 5px;
+    height: 5px;
+  }
+`
+
+const TabButton = ({ active, children, ...rest }) => (
+  <TabButtonWrapper {...rest}>
+    <TabPressable active={active}>{children}</TabPressable>
+    {active && <Dot />}
+  </TabButtonWrapper>
+)
+
+export { Title, Subtitle, Text, Button, Input, Textarea, TabButton }

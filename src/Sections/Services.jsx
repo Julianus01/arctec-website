@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Title, Button } from '../styled'
+import { Title, TabButton } from '../styled'
 
-const Services = () => (
-  <Section>
-    <Wrapper>
-      <Title>Services</Title>
-      <Content />
-      <Footer>
-        <Button style={{ border: 0, fontWeight: 'bold' }}>Web</Button>
-        <Button style={{ border: 0, fontWeight: 'bold' }}>Mobile</Button>
-      </Footer>
-    </Wrapper>
-  </Section>
-)
+const Services = () => {
+  const [selectedTab, setSelectedTab] = useState('web')
+
+  return (
+    <Section>
+      <Wrapper>
+        <Title>Services</Title>
+
+        <Content>
+          {selectedTab === 'web' && <div>WEB</div>}
+
+          {selectedTab === 'mobile' && <div>MOBILE</div>}
+        </Content>
+
+        <Footer>
+          <TabButton
+            active={selectedTab === 'web'}
+            onClick={() => setSelectedTab('web')}
+          >
+            Web
+          </TabButton>
+
+          <TabButton
+            active={selectedTab === 'mobile'}
+            onClick={() => setSelectedTab('mobile')}
+          >
+            Mobile
+          </TabButton>
+        </Footer>
+      </Wrapper>
+    </Section>
+  )
+}
 
 export default Services
 
