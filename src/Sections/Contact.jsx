@@ -1,44 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Title, Button, Input, Textarea } from '../styled'
+import { Title, Input } from '../styled'
+import { Phone } from 'react-feather'
 
-const Contact = () => {
-  return (
-    <Section>
-      <Wrapper>
-        <Title>Work with us</Title>
+const Contact = () => (
+  <Section style={{ marginBottom: 100 }}>
+    <Wrapper>
+      <Title>Work with us</Title>
 
-        <Content>
-          <PersonalInformationWrapper>
-            <Input
-              style={{ marginBottom: 20 }}
-              label='Full Name'
-              placeholder='Name...'
-            />
-            <Input
-              style={{ marginBottom: 20 }}
-              label='Email'
-              placeholder='Email...'
-            />
-            <Input label='Phone Number' placeholder='Phone Number...' />
-          </PersonalInformationWrapper>
-
-          <MessageWrapper>
-            <Textarea
-              style={{ height: '100%' }}
-              label='Message'
-              placeholder='Description...'
-            />
-          </MessageWrapper>
-
-          <Footer>
-            <Button>Send</Button>
-          </Footer>
-        </Content>
-      </Wrapper>
-    </Section>
-  )
-}
+      <Content>
+        <Input
+          style={{ width: '100%', marginBottom: 60 }}
+          leftIcon={<Phone size={30} color='#afafaf' />}
+          placeholder='Phone number...'
+          label="Leave us a phone number, we'll be in touch"
+        />
+      </Content>
+    </Wrapper>
+  </Section>
+)
 
 export default Contact
 
@@ -63,44 +43,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   display: flex;
-  flex-wrap: wrap;
-`
-
-const PersonalInformationWrapper = styled.div`
-  flex: 1;
-  display: flex;
   flex-direction: column;
-  margin-right: 40px;
-
-  @media screen and (max-width: 992px) {
-    margin-right: 20px;
-  }
-
-  @media screen and (max-width: 768px) {
-    margin-right: 0px;
-    margin-bottom: 20px;
-  }
-`
-
-const MessageWrapper = styled.div`
-  flex: 1;
-  margin-left: 40px;
-
-  @media screen and (max-width: 992px) {
-    margin-left: 20px;
-  }
-
-  @media screen and (max-width: 768px) {
-    margin-left: 0px;
-    flex: auto;
-    width: 100%;
-    min-height: 300px;
-  }
-`
-
-const Footer = styled.div`
-  margin-top: 40px;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  max-width: 500px;
+  align-items: center;
 `

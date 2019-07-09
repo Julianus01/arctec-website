@@ -69,7 +69,7 @@ const Label = styled.label`
   }
 `
 
-const InputContainer = styled.div`
+const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
@@ -97,11 +97,11 @@ const TextareaStyled = styled.textarea`
 `
 
 const InputStyled = styled.input`
-  background-color: #1a1a1a;
+  background-color: transparent;
   border: 0;
   color: white;
-  padding: 13px 20px;
   font-size: 20px;
+  width: 100%;
 
   @media screen and (max-width: 768px) {
     font-size: 16px;
@@ -116,18 +116,32 @@ const InputStyled = styled.input`
   }
 `
 
-const Input = ({ label, placeholder, ...rest }) => (
-  <InputContainer {...rest}>
+const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 13px 20px;
+`
+
+const Input = ({ label, placeholder, leftIcon, ...rest }) => (
+  <InputWrapper {...rest}>
     <Label>{label}</Label>
-    <InputStyled placeholder={placeholder} type='text' />
-  </InputContainer>
+    <InputContainer>
+      {leftIcon && (
+        <div style={{ marginRight: 13, display: 'flex', alignItems: 'center' }}>
+          {leftIcon}
+        </div>
+      )}
+      <InputStyled placeholder={placeholder} type='text' />
+    </InputContainer>
+  </InputWrapper>
 )
 
 const Textarea = ({ label, placeholder, ...rest }) => (
-  <InputContainer {...rest}>
+  <InputWrapper {...rest}>
     <Label>{label}</Label>
     <TextareaStyled placeholder={placeholder} />
-  </InputContainer>
+  </InputWrapper>
 )
 
 const TabPressable = styled.button`

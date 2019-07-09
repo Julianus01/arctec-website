@@ -3,27 +3,42 @@ import styled from 'styled-components'
 import heroImgPath from '../assets/images/hero-background.jpeg'
 import Fade from 'react-reveal/Fade'
 
-const Hero = () => {
-  return (
-    <Fade>
-      <Section>
-        <MottoWrapper>
-          <Dash />
-          <Motto>A software company, built for your business</Motto>
-          <Dash />
-        </MottoWrapper>
+const Hero = () => (
+  <Fade>
+    <Section>
+      <MottoWrapper>
+        <Dash />
+        <Motto>A software company, built for your business</Motto>
+        <Dash />
+      </MottoWrapper>
 
-        <CenterAbsolute>
-          <CompanyName>ARCTEC</CompanyName>
-        </CenterAbsolute>
+      <CenterAbsolute>
+        <CompanyName>ARCTEC</CompanyName>
+      </CenterAbsolute>
 
-        <BackgroundImage />
-      </Section>
-    </Fade>
-  )
-}
+      <BackgroundImage />
+
+      <Absolute>
+        <ParticlesDiv />
+      </Absolute>
+    </Section>
+  </Fade>
+)
 
 export default Hero
+
+const Absolute = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+`
+
+const ParticlesDiv = styled.div.attrs({ id: 'particles-div' })`
+  height: 100%;
+  width: 100%;
+`
 
 const Section = styled.section`
   height: 100vh;

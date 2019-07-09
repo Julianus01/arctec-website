@@ -2,7 +2,6 @@ import React from 'react'
 import { Title } from '../styled'
 import styled from 'styled-components'
 import roadImageSrc from '../assets/images/road.jpg'
-import { Controller, Scene } from 'react-scrollmagic'
 
 const CallToAction = () => (
   <Section>

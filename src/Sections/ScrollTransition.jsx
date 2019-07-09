@@ -6,7 +6,7 @@ import BigWord from './BigWord'
 
 const ScrollTransition = () => (
   <Controller>
-    <Scene offset={window.innerHeight / 2} pin duration={300} reverse>
+    <Scene offset={window.innerHeight / 4} duration={300} reverse>
       {progress => (
         <Container>
           {progress < 0.5 && (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Anchor, Link2, Search, Crosshair, Heart, Box } from 'react-feather'
 import { Subtitle, Text } from '../styled'
@@ -40,11 +40,7 @@ const Qualities = () => (
 
       <Fade bottom>
         <Quality>
-          <Crosshair
-            //
-            color='#E5E5E5'
-            style={{ marginBottom: 20 }}
-          />
+          <Crosshair color='#E5E5E5' style={{ marginBottom: 20 }} />
           <Subtitle style={{ marginBottom: 10 }}>Clear Target</Subtitle>
           <Description>
             Aiming at success with the discipline of achieving it.
