@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "af5d0a2d36eea1c0b8a89c5d7ecfb18f",
+    "revision": "4fe1a0e0b4cc39faf5d840d48494c7e2",
     "url": "/arctec-website/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arctec-website/static/css/2.b96c2c02.chunk.css"
   },
   {
-    "revision": "36f8ed8ec92f27cf7a82",
+    "revision": "e40137966400bec44261",
     "url": "/arctec-website/static/css/main.ae828032.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arctec-website/static/js/2.71b4ecf4.chunk.js"
   },
   {
-    "revision": "36f8ed8ec92f27cf7a82",
-    "url": "/arctec-website/static/js/main.e8465a1f.chunk.js"
+    "revision": "e40137966400bec44261",
+    "url": "/arctec-website/static/js/main.020b6f6e.chunk.js"
   },
   {
     "revision": "065d2b765e04d75f67ca",
@@ -41,6 +41,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "e96d2bc1a50085d4e0492ab23e6c6235",
-    "url": "/arctec-website/static/media/road-minified.e96d2bc1.jpg"
+    "url": "/arctec-website/static/media/road.e96d2bc1.jpg"
   }
 ]);
