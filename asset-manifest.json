@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/arctec-website/static/css/main.ae828032.chunk.css",
-    "main.js": "/arctec-website/static/js/main.f573eea1.chunk.js",
-    "main.js.map": "/arctec-website/static/js/main.f573eea1.chunk.js.map",
+    "main.js": "/arctec-website/static/js/main.5f6f0db9.chunk.js",
+    "main.js.map": "/arctec-website/static/js/main.5f6f0db9.chunk.js.map",
     "runtime~main.js": "/arctec-website/static/js/runtime~main.e663c7e8.js",
     "runtime~main.js.map": "/arctec-website/static/js/runtime~main.e663c7e8.js.map",
     "static/css/2.b96c2c02.chunk.css": "/arctec-website/static/css/2.b96c2c02.chunk.css",
     "static/js/2.b2255350.chunk.js": "/arctec-website/static/js/2.b2255350.chunk.js",
     "static/js/2.b2255350.chunk.js.map": "/arctec-website/static/js/2.b2255350.chunk.js.map",
     "index.html": "/arctec-website/index.html",
-    "precache-manifest.e696d1e1592ca4527bfdc03019a61f2b.js": "/arctec-website/precache-manifest.e696d1e1592ca4527bfdc03019a61f2b.js",
+    "precache-manifest.8d1b68882d39af6fe52d6a2f165fd6a0.js": "/arctec-website/precache-manifest.8d1b68882d39af6fe52d6a2f165fd6a0.js",
     "service-worker.js": "/arctec-website/service-worker.js",
     "static/css/2.b96c2c02.chunk.css.map": "/arctec-website/static/css/2.b96c2c02.chunk.css.map",
     "static/css/main.ae828032.chunk.css.map": "/arctec-website/static/css/main.ae828032.chunk.css.map",
