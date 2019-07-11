@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import Loading from './Loading'
+import React, { useState, useEffect } from "react"
+import Loading from "./Loading"
 
 // Sections
-import Hero from './Sections/Hero'
-import Vision from './Sections/Vision'
-import Services from './Sections/Services'
-import Contact from './Sections/Contact'
-import Qualities from './Sections/Qualities'
-import IphoneX from './Sections/IphoneX'
-import ScrollTransition from './Sections/ScrollTransition'
+import Hero from "./Sections/Hero"
+import Vision from "./Sections/Vision"
+import Services from "./Sections/Services"
+import Contact from "./Sections/Contact"
+import Qualities from "./Sections/Qualities"
+import IphoneX from "./Sections/IphoneX"
+import ScrollTransition from "./Sections/ScrollTransition"
 
 const wait = timer => new Promise(resolve => setTimeout(resolve, timer))
 
@@ -36,7 +36,7 @@ const App = () => {
       <Services />
       <Qualities />
       <ScrollTransition />
-      <IphoneX />
+      {/* <IphoneX /> */}
       <Contact />
     </React.Fragment>
   )

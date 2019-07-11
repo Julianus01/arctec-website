@@ -1,10 +1,10 @@
 @font-face {
-  src: url('./assets/fonts/Anurati.otf');
+  src: url("./assets/fonts/Anurati.otf");
   font-family: Anurati;
 }
 
 @font-face {
-  src: url('./assets/fonts/Futura.ttf');
+  src: url("./assets/fonts/Futura.ttf");
   font-family: Futura;
 }
 
@@ -23,6 +23,10 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.fab {
+  color: rgb(175, 175, 175);
+  font-size: 50px;
 }
