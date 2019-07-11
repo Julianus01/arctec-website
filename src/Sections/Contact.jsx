@@ -1,18 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Title, Input } from '../styled'
-import { Phone } from 'react-feather'
+import React from "react"
+import styled from "styled-components"
+import { Title, Input } from "../styled"
+import { Phone } from "react-feather"
 
 const Contact = () => (
-  <Section style={{ marginBottom: 100 }}>
+  <Section>
     <Wrapper>
       <Title>Work with us</Title>
 
       <Content>
         <Input
-          style={{ width: '100%', marginBottom: 60 }}
-          leftIcon={<Phone size={30} color='#afafaf' />}
-          placeholder='Phone number...'
+          type="tel"
+          style={{ width: "100%", marginBottom: 60 }}
+          leftIcon={<Phone size={30} color="#afafaf" />}
+          placeholder="Phone number..."
           label="Leave us a phone number, we'll be in touch"
         />
       </Content>
@@ -29,6 +30,8 @@ const Section = styled.section`
   margin-right: auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40vh;
+  margin-bottom: calc(var(--vh, 1vh) * 40);
 `
 
 const Wrapper = styled.div`
