@@ -14,6 +14,7 @@ import {
 
 export const WebServices = () => (
   <React.Fragment>
+    <FakeMargin />
     <Service>
       <IconGroup>
         <Package color="#AFAFAF" size={50} />
@@ -76,6 +77,7 @@ export const WebServices = () => (
 
 export const MobileServices = () => (
   <React.Fragment>
+    <FakeMargin />
     <Service>
       <IconGroup>
         <i class="fab fa-apple" style={{ marginRight: 20 }} />

@@ -11,7 +11,9 @@ const Services = () => {
     <Section>
       <Wrapper>
         <Fade>
-          <Title>Services</Title>
+          <div style={{ maxWidth: 1400, margin: "auto", width: "90%" }}>
+            <Title>Services</Title>
+          </div>
         </Fade>
 
         <Content>
@@ -36,7 +38,7 @@ const Services = () => {
 export default Services
 
 const Section = styled.section`
-  width: 90%;
+  width: 100%;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -66,8 +68,6 @@ const Content = styled.div`
   -webkit-overflow-scrolling: touch;
   position: relative;
   margin-bottom: 40px;
-  margin-left: -40px;
-  margin-right: -40px;
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
@@ -78,11 +78,14 @@ const Content = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    margin-left: -20px;
-    margin-right: -20px;
+    /* margin-left: -20px; */
+    /* margin-right: -20px; */
   }
 `
 
 const Footer = styled.div`
   display: flex;
+  max-width: 1400px;
+  width: 90%;
+  margin: auto;
 `

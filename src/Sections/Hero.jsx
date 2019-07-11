@@ -95,7 +95,6 @@ const CompanyName = styled.h1`
   }
   @media screen and (max-width: 768px) {
     font-size: 50px;
-    color: #8c8c8c;
   }
 `
 
