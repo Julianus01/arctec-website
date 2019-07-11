@@ -1,25 +1,40 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import { Title, Input } from "../styled"
+import { Title, Input, Text, Subtitle, Button } from "../styled"
 import { Phone } from "react-feather"
 
-const Contact = () => (
-  <Section>
-    <Wrapper>
-      <Title>Work with us</Title>
+const Contact = () => {
+  const [phoneNumber, setPhoneNumber] = useState("")
 
-      <Content>
-        <Input
-          type="tel"
-          style={{ width: "100%", marginBottom: 60 }}
-          leftIcon={<Phone size={30} color="#afafaf" />}
-          placeholder="Phone number..."
-          label="Leave us a phone number, we'll be in touch"
-        />
-      </Content>
-    </Wrapper>
-  </Section>
-)
+  const onInputChange = event => {
+    setPhoneNumber(event.target.value.replace(/\D/, ""))
+  }
+
+  return (
+    <Section>
+      <Wrapper>
+        <Title>Work with us</Title>
+
+        <Content>
+          <Input
+            type="tel"
+            value={phoneNumber}
+            onChange={onInputChange}
+            style={{ width: "100%" }}
+            leftIcon={<Phone size={30} color="#afafaf" />}
+            placeholder="Phone number..."
+            label="Leave us a phone number, we'll be in touch"
+          />
+          <SendButton>Send</SendButton>
+
+          <Subtitle>Or contact us at</Subtitle>
+          <Text style={{ marginBottom: 5 }}>office@arctec.ro</Text>
+          <Text>0742 376 973</Text>
+        </Content>
+      </Wrapper>
+    </Section>
+  )
+}
 
 export default Contact
 
@@ -30,8 +45,21 @@ const Section = styled.section`
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 40vh;
-  margin-bottom: calc(var(--vh, 1vh) * 40);
+`
+
+const SendButton = styled(Button)`
+  margin-bottom: 15vh;
+  padding-bottom: calc(var(--vh, 1vh) * 15);
+  border: 0;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0;
+  padding-right: 0;
+  padding-left: 0;
+
+  :hover {
+    background-color: transparent;
+  }
 `
 
 const Wrapper = styled.div`
@@ -48,5 +76,4 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  align-items: center;
 `
