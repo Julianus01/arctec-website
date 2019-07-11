@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c3b317904aa235404c54138ac76fcd81",
+    "revision": "ad088329e5c4bca887d22e6acb1cc25f",
     "url": "/arctec-website/index.html"
   },
   {
-    "revision": "2152630ac6545196ae26",
+    "revision": "c7584be97fb6c45a2479",
     "url": "/arctec-website/static/css/2.b96c2c02.chunk.css"
   },
   {
-    "revision": "e2f9e9cd03dd4cb580ff",
+    "revision": "404879dc85b53676cdc1",
     "url": "/arctec-website/static/css/main.ae828032.chunk.css"
   },
   {
-    "revision": "2152630ac6545196ae26",
-    "url": "/arctec-website/static/js/2.9ed1fdd5.chunk.js"
+    "revision": "c7584be97fb6c45a2479",
+    "url": "/arctec-website/static/js/2.7309008f.chunk.js"
   },
   {
-    "revision": "e2f9e9cd03dd4cb580ff",
-    "url": "/arctec-website/static/js/main.03cdba0b.chunk.js"
+    "revision": "404879dc85b53676cdc1",
+    "url": "/arctec-website/static/js/main.c9982afd.chunk.js"
   },
   {
     "revision": "065d2b765e04d75f67ca",
