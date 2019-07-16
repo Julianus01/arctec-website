@@ -34,8 +34,8 @@ export const WebServices = () => (
 
       <Subtitle>Well Designed</Subtitle>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
+        We believe design is intelligence made visible. It’s not a matter of wanting a good design,
+        it’s a matter of <b>must</b> having a good design
       </Text>
     </Service>
 
@@ -45,7 +45,10 @@ export const WebServices = () => (
       </IconGroup>
 
       <Subtitle>Lightning Fast</Subtitle>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+      <Text>
+        Performance is just a side effect of a well executed and organized product development. We
+        offer that with discipline.
+      </Text>
     </Service>
 
     <Service>
@@ -55,8 +58,8 @@ export const WebServices = () => (
 
       <Subtitle>Power of Cloud</Subtitle>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
+        By taking advantage of the cloud technology, we are able to provide delivery and reliability
+        at a blink of an eye.
       </Text>
     </Service>
 
@@ -67,8 +70,8 @@ export const WebServices = () => (
 
       <Subtitle>Secure storage</Subtitle>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
+        Private data should remain…private. In the true sense of the word, we are keeping your data
+        protected and well secured.
       </Text>
     </Service>
     <FakeMargin />
@@ -87,8 +90,8 @@ export const MobileServices = () => (
 
       <Subtitle>Cross platform</Subtitle>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
+        iOS and Android may be two different mobile platforms, but their goal is the same, to serve
+        good applications. We do that for both of them.
       </Text>
     </Service>
 
@@ -98,8 +101,8 @@ export const MobileServices = () => (
       </IconGroup>
       <Subtitle>User friendly</Subtitle>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
+        The product is not an obstacle, it’s here to help. We reflect this by designing an easy to
+        use and intuitive experience from the moment the app is opened.
       </Text>
     </Service>
 
@@ -108,10 +111,7 @@ export const MobileServices = () => (
         <BatteryCharging color="#AFAFAF" size={50} />
       </IconGroup>
       <Subtitle>Performance</Subtitle>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
-      </Text>
+      <Text>We want your phone to compete with computers in application performance.</Text>
     </Service>
 
     <Service>
@@ -120,8 +120,8 @@ export const MobileServices = () => (
       </IconGroup>
       <Subtitle>Secure</Subtitle>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
+        Your phone can keep pictures, phone numbers, videos and so much more…but can it keep it
+        private? We assure a secured and private way of utilizing applications.
       </Text>
     </Service>
 
@@ -132,8 +132,8 @@ export const MobileServices = () => (
 
       <Subtitle>Well Designed</Subtitle>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-        delectus officia
+        We believe design is intelligence made visible. It’s not a matter of wanting a good design,
+        it’s a matter of <b>must</b> having a good design
       </Text>
     </Service>
     <FakeMargin />

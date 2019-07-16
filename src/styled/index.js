@@ -124,7 +124,7 @@ const InputContainer = styled.div`
 
 const Input = ({ label, placeholder, leftIcon, className, style, ...rest }) => (
   <InputWrapper className={className} style={style}>
-    <Label>{label}</Label>
+    {label && <Label>{label}</Label>}
     <InputContainer>
       {leftIcon && (
         <div style={{ marginRight: 13, display: "flex", alignItems: "center" }}>{leftIcon}</div>

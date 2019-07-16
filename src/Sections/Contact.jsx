@@ -4,9 +4,11 @@ import { Title, Input, Text, Subtitle, Button } from "../styled"
 import { Phone } from "react-feather"
 
 const Contact = () => {
+  const [contactChoice, setContactChoice] = useState("phone")
   const [phoneNumber, setPhoneNumber] = useState("")
+  const [email, setEmail] = useState("")
 
-  const onInputChange = event => {
+  const onPhoneNumberChange = event => {
     setPhoneNumber(event.target.value.replace(/\D/, ""))
   }
 
@@ -19,7 +21,7 @@ const Contact = () => {
           <Input
             type="tel"
             value={phoneNumber}
-            onChange={onInputChange}
+            onChange={onPhoneNumberChange}
             style={{ width: "100%" }}
             leftIcon={<Phone size={30} color="#afafaf" />}
             placeholder="Phone number..."

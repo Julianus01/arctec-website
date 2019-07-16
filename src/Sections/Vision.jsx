@@ -1,17 +1,17 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Title, Text } from '../styled'
-import Fade from 'react-reveal/Fade'
+import React from "react"
+import styled from "styled-components"
+import { Title, Text } from "../styled"
+import Fade from "react-reveal/Fade"
 
 const VisionSection = () => (
   <Section>
     <Fade bottom>
       <Title>Vision</Title>
       <Text style={{ maxWidth: 1000 }}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.
+        In a world surrounded by software providing multiple ways of improving day to day life and
+        work productivity, our vision is to create the perfect combination of great ideas that solve
+        business needs, cutting edge design and experience, performance and reliability in order to
+        deliver the highest fitting product for your business.
       </Text>
     </Fade>
   </Section>
