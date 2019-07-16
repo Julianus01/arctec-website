@@ -27,7 +27,7 @@ const App = () => {
     triggerLoadingAnimation()
   }, [])
 
-  if (!showApp) return <Loading loading={loading} />
+  // if (!showApp) return <Loading loading={loading} />
 
   return (
     <React.Fragment>

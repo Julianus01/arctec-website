@@ -83,9 +83,9 @@ export const MobileServices = () => (
     <FakeMargin />
     <Service>
       <IconGroup>
-        <i class="fab fa-apple" style={{ marginRight: 20 }} />
+        <i className="fab fa-apple" style={{ marginRight: 20 }} />
 
-        <i class="fab fa-android" />
+        <i className="fab fa-android" />
       </IconGroup>
 
       <Subtitle>Cross platform</Subtitle>
