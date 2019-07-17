@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { Title, Input, Text, Subtitle, Button } from "../styled"
 import { Phone } from "react-feather"
+import IosSpinner from "./IosSpinner"
 
 const Contact = () => {
   const [contactChoice, setContactChoice] = useState("phone")
@@ -27,7 +28,10 @@ const Contact = () => {
             placeholder="Phone number..."
             label="Leave us a phone number, we'll be in touch"
           />
-          <SendButton>Send</SendButton>
+          <SendButton>
+            <IosSpinner />
+            Send
+          </SendButton>
 
           <Subtitle>Or contact us at</Subtitle>
           <Text style={{ marginBottom: 5 }}>office@arctec.ro</Text>
