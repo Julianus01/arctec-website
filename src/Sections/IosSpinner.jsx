@@ -3,18 +3,18 @@ import styled from "styled-components"
 
 const IosSpinner = () => (
   <SpinnerContainer>
-    <div class="bar1" />
-    <div class="bar2" />
-    <div class="bar3" />
-    <div class="bar4" />
-    <div class="bar5" />
-    <div class="bar6" />
-    <div class="bar7" />
-    <div class="bar8" />
-    <div class="bar9" />
-    <div class="bar10" />
-    <div class="bar11" />
-    <div class="bar12" />
+    <div className="bar1" />
+    <div className="bar2" />
+    <div className="bar3" />
+    <div className="bar4" />
+    <div className="bar5" />
+    <div className="bar6" />
+    <div className="bar7" />
+    <div className="bar8" />
+    <div className="bar9" />
+    <div className="bar10" />
+    <div className="bar11" />
+    <div className="bar12" />
   </SpinnerContainer>
 )
 
@@ -25,7 +25,7 @@ const SpinnerContainer = styled.div`
   width: 18px;
   height: 18px;
   display: inline-block;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
 
   div {

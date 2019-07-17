@@ -3,12 +3,9 @@ import styled from "styled-components"
 import { Title, TabButton } from "../styled"
 import Fade from "react-reveal/Fade"
 import { WebServices, MobileServices } from "./ServicesContent"
-import { ChevronLeft, ChevronRight } from "react-feather"
 
 const Services = () => {
   const [selectedTab, setSelectedTab] = useState("web")
-
-  const moveRight = () => {}
 
   return (
     <Section>
@@ -90,8 +87,4 @@ const Footer = styled.div`
   max-width: 1400px;
   width: 90%;
   margin: auto;
-`
-const IconGroup = styled.div`
-  display: flex;
-  margin-bottom: 20px;
 `
