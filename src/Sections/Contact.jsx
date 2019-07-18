@@ -1,11 +1,38 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Title, Input, Text, Subtitle, Button, Label } from "../styled"
-import { Phone, Mail } from "react-feather"
+import { Phone, Mail, ZoomIn, Sliders, ZoomOut } from "react-feather"
 import IosSpinner from "./IosSpinner"
 import api from "../api"
+import Rodal from "rodal"
+import "rodal/lib/rodal.css"
+import { async } from "q"
+import { useEffect } from "react"
 
 const wait = timer => new Promise(resolve => setTimeout(resolve, timer))
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window
+  return {
+    width,
+    height
+  }
+}
+
+export function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions())
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  return windowDimensions
+}
 
 const Contact = () => {
   const [contactChoice, setContactChoice] = useState("phone")
@@ -14,6 +41,12 @@ const Contact = () => {
   const [loading, setLoading] = useState(false)
   const [showPhoneError, setShowPhoneError] = useState(false)
   const [showEmailError, setShowEmailError] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const { width } = useWindowDimensions();
+
+  const closeModal = () => {
+    setShowModal(false)
+  }
 
   const onPhoneNumberChange = event => {
     setPhoneNumber(event.target.value.replace(/\D/, ""))
@@ -34,40 +67,95 @@ const Contact = () => {
   }
 
   const sendEmailWithClientInfo = async () => {
-    if(contactChoice === "email" && validateEmailAddress() === true){
+    if (contactChoice === "email" && validateEmailAddress() === true) {
       setLoading(true)
       setTimeout(() => setLoading(false), 5000)
-      console.log("mail trimis")
-    }else if( contactChoice === "phone" && validatePhoneNumber() === true){
-      setLoading(true)
-      setTimeout(() => setLoading(false), 5000)
-      console.log("nr tel trimis")
+      await wait(5000)
+      setShowModal(true)
+      setTimeout(() => closeModal(), 5000)
+
+      return
     }
+    setLoading(true)
+    setTimeout(() => setLoading(false), 5000)
+    await wait(5000)
+    setShowModal(true)
+    // setTimeout(() => closeModal(), 5000)
   }
 
   const validatePhoneNumber = () => {
     if (phoneNumber.length < 8 || phoneNumber.length > 12) {
       setShowPhoneError(true)
       setTimeout(() => setShowPhoneError(false), 5000)
+
       return false
     }
+
     return true
   }
 
   const validateEmailAddress = () => {
-    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test((email))){
+    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
       return true
     }
-    else{
-      setShowEmailError(true)
-      setTimeout(() => setShowEmailError(false), 5000)
-      return false
-    }
+    setShowEmailError(true)
+    setTimeout(() => setShowEmailError(false), 5000)
+
+    return false
   }
 
   return (
     <Section>
       <Wrapper>
+        {width <= "750" && (
+          <React.Fragment>
+          <Rodal
+            visible={showModal}
+            onClose={closeModal}
+            showCloseButton={false}
+            animation="slideUp"
+            width="fit-content"
+            height="100"
+            customStyles={{
+              maxWidth: "1400px",
+              top: "50%",
+              marginLeft: "5px",
+              marginRight: "5px",
+              backgroundImage:
+                "-webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%)"
+            }}
+          >
+            {contactChoice === "phone" && <Modal>We recieved your phone number !</Modal>}
+            {contactChoice === "email" && <Modal>We recieved your email !</Modal>}
+            <div>We'll keep in touch</div>
+            <CloseModalButton onClick={closeModal}>Close</CloseModalButton>
+          </Rodal>
+          
+          </React.Fragment>
+        )}
+
+        {width > "750" && (
+          <Rodal
+            visible={showModal}
+            onClose={closeModal}
+            animation="slideUp"
+            width="400"
+            height="100"
+            customStyles={{
+              maxWidth: "1400px",
+              left: "50%",
+              right: "50%",
+              top: "80%",
+              backgroundImage:
+                "-webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%)"
+            }}
+          >
+            {contactChoice === "phone" && <Modal>We recieved your phone number !</Modal>}
+            {contactChoice === "email" && <Modal>We recieved your email !</Modal>}
+            <div>We'll keep in touch</div>
+          </Rodal>
+        )}
+
         <Title>Work with us</Title>
 
         <Content>
@@ -142,7 +230,7 @@ const SendButton = styled(Button)`
   padding-right: 0;
   padding-left: 0;
 
-  opacity: ${props => props.disabled ? 0.6 : 1};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
 
   display: flex;
   align-items: center;
@@ -192,10 +280,18 @@ const Content = styled.div`
   flex-direction: column;
   max-width: 500px;
 `
-const Error = styled.div`
-  margin-top: 25px;
-  flex: 1;
-  font-size: 15px;
-  color: red;
-  width: fit-content;
+const Modal = styled.p`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+`
+const CloseModalButton = styled.button`
+width: 100%;
+height: 30px; 
+background-color: #afafaf;
+ bottom: -20%; 
+ position: absolute;
+ border: 0;
+ left:0;
+ right:0;
 `
