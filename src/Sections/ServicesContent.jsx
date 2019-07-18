@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { Subtitle, Text } from "../styled"
 import {
@@ -177,6 +177,31 @@ const mobileItems = [
   }
 ]
 
+
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+export default function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
 const Menu = (list, selected) =>
   list.map(el => {
     const { key, render } = el
@@ -189,6 +214,7 @@ const MenuItem = ({ render }) => {
 
 export const WebServices = () => {
   const [selected, setSelected] = useState(1)
+  const { width } = useWindowDimensions();
 
   const onSelect = key => {
     setSelected(key)
@@ -197,24 +223,34 @@ export const WebServices = () => {
   const menuItems = Menu(webItems, selected)
 
   return (
-    <React.Fragment>
-      <FakeMargin />
+    <React.Fragment >
+
+      { width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
+      { width > "930" && 
+
       <ScrollMenu
-        innerWrapperStyle={{ whiteSpace: "normal", display: "flex" }}
-        translate={100}
+        innerWrapperStyle={{
+          whiteSpace: "normal",
+          display: "flex",
+          cursor: "grab",
+        }}
+        itemStyle={{ outline: "none" }}
+        itemClassActive={"active"}
+        translate={-10}
         data={menuItems}
         selected={selected}
         onSelect={onSelect}
-        arrowLeft={<ChevronLeft color={"white"} />}
-        arrowRight={<ChevronRight color={"white"} />}
+        arrowLeft={<ArrowDiv><ChevronLeft size={50} style={{ color: "white", size: '100px'}} /> </ArrowDiv>}
+        arrowRight={<ArrowDiv><ChevronRight size={50} style={{ color: "white"}} /> </ArrowDiv>}
       />
-      <FakeMargin />
+      }
     </React.Fragment>
   )
 }
 
 export const MobileServices = () => {
   const [selected, setSelected] = useState(1)
+  const { width } = useWindowDimensions();
 
   const onSelect = key => {
     setSelected(key)
@@ -223,18 +259,27 @@ export const MobileServices = () => {
   const menuItems = Menu(mobileItems, selected)
 
   return (
-    <React.Fragment>
-      <FakeMargin />
+    <React.Fragment >
+
+      { width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
+      { width > "930" && 
+
       <ScrollMenu
-        innerWrapperStyle={{ whiteSpace: "normal", display: "flex" }}
-        translate={100}
+        innerWrapperStyle={{
+          whiteSpace: "normal",
+          display: "flex",
+          cursor: "grab",
+        }}
+        itemStyle={{ outline: "none" }}
+        itemClassActive={"active"}
+        translate={-10}
         data={menuItems}
         selected={selected}
         onSelect={onSelect}
-        arrowLeft={<ChevronLeft color={"white"} />}
-        arrowRight={<ChevronRight color={"white"} />}
+        arrowLeft={<ArrowDiv><ChevronLeft size={50} style={{ color: "white", size: '100px'}} /> </ArrowDiv>}
+        arrowRight={<ArrowDiv><ChevronRight size={50} style={{ color: "white"}} /> </ArrowDiv>}
       />
-      <FakeMargin />
+      }
     </React.Fragment>
   )
 }
@@ -250,6 +295,7 @@ const Service = styled.div`
   margin-right: 20px;
   border-radius: 10px;
   max-height: 320px;
+  border: 0;
 
   background-image: -webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%);
 
@@ -260,13 +306,18 @@ const Service = styled.div`
   }
 `
 
-const FakeMargin = styled.div`
-  max-height: 300px;
-  flex: 0 0 10px;
-  background-color: black;
-`
-
 const IconGroup = styled.div`
   display: flex;
   margin-bottom: 20px;
+`
+const ArrowDiv = styled.div`
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 50px;
+  padding: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
+
 `

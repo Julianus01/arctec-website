@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Title, Input, Text, Subtitle, Button, Label } from "../styled"
 import { Phone, Mail } from "react-feather"
 import IosSpinner from "./IosSpinner"
+import api from "../api"
 
 const wait = timer => new Promise(resolve => setTimeout(resolve, timer))
 
@@ -11,6 +12,7 @@ const Contact = () => {
   const [phoneNumber, setPhoneNumber] = useState("")
   const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   const onPhoneNumberChange = event => {
     setPhoneNumber(event.target.value.replace(/\D/, ""))
@@ -30,6 +32,18 @@ const Contact = () => {
   }
 
   const sendEmailWithClientInfo = async () => {}
+
+  const validatePhoneNumber = () => {
+    if (phoneNumber.length < 8 || phoneNumber.length > 12) {
+      setShowError(true)
+      setTimeout(() => setShowError(false), 5000)
+      return
+    }
+
+    api.sendMail()
+
+    console.log(showError)
+  }
 
   return (
     <Section>
@@ -70,7 +84,7 @@ const Contact = () => {
             {/* <ErrorMessage>Phone number must be between 8 and 12 numbers</ErrorMessage> */}
             {/* <ErrorMessage>Email must be a valid email</ErrorMessage> */}
 
-            <SendButton onClick={sendEmailWithClientInfo}>
+            <SendButton disabled={loading} onClick={sendEmailWithClientInfo}>
               {loading && <IosSpinner style={{ marginRight: 3 }} />}
               Send
             </SendButton>
@@ -153,4 +167,11 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 500px;
+`
+const Error = styled.div`
+  margin-top: 25px;
+  flex: 1;
+  font-size: 15px;
+  color: red;
+  width: fit-content;
 `
