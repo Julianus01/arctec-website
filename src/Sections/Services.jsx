@@ -3,12 +3,9 @@ import styled from "styled-components"
 import { Title, TabButton } from "../styled"
 import Fade from "react-reveal/Fade"
 import { WebServices, MobileServices } from "./ServicesContent"
-import { ChevronLeft, ChevronRight } from "react-feather"
 
 const Services = () => {
   const [selectedTab, setSelectedTab] = useState("web")
-
-  const moveRight = () => {}
 
   return (
     <Section>
@@ -48,6 +45,8 @@ const Section = styled.section`
   flex-direction: column;
   margin-bottom: 20vh;
   margin-bottom: calc(var(--vh, 1vh) * 20);
+  outline: none;
+  overflow-x: hidden;
 
   @media screen and (max-width: 768px) {
     margin-bottom: 10vh;
@@ -66,7 +65,11 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  /* flex: 1;
+  
+  margin: 0px -50px;
+
+  @media screen and (max-width : 930px){
+    flex: 1;
   -webkit-overflow-scrolling: touch;
   position: relative;
   margin-bottom: 40px;
@@ -77,11 +80,7 @@ const Content = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
-  } */
-
-  @media screen and (max-width: 768px) {
-    /* margin-left: -20px; */
-    /* margin-right: -20px; */
+  }
   }
 `
 
@@ -90,8 +89,4 @@ const Footer = styled.div`
   max-width: 1400px;
   width: 90%;
   margin: auto;
-`
-const IconGroup = styled.div`
-  display: flex;
-  margin-bottom: 20px;
 `
