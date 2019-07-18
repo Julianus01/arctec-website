@@ -12,7 +12,8 @@ const Contact = () => {
   const [phoneNumber, setPhoneNumber] = useState("")
   const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(false)
-  const [showError, setShowError] = useState(false)
+  const [showPhoneError, setShowPhoneError] = useState(false)
+  const [showEmailError, setShowEmailError] = useState(false)
 
   const onPhoneNumberChange = event => {
     setPhoneNumber(event.target.value.replace(/\D/, ""))
@@ -25,24 +26,43 @@ const Contact = () => {
   const onContactChoiceChange = () => {
     if (contactChoice === "phone") {
       setContactChoice("email")
+      setShowPhoneError(false)
       return
     }
-
+    setShowEmailError(false)
     setContactChoice("phone")
   }
 
-  const sendEmailWithClientInfo = async () => {}
+  const sendEmailWithClientInfo = async () => {
+    if(contactChoice === "email" && validateEmailAddress() === true){
+      setLoading(true)
+      setTimeout(() => setLoading(false), 5000)
+      console.log("mail trimis")
+    }else if( contactChoice === "phone" && validatePhoneNumber() === true){
+      setLoading(true)
+      setTimeout(() => setLoading(false), 5000)
+      console.log("nr tel trimis")
+    }
+  }
 
   const validatePhoneNumber = () => {
     if (phoneNumber.length < 8 || phoneNumber.length > 12) {
-      setShowError(true)
-      setTimeout(() => setShowError(false), 5000)
-      return
+      setShowPhoneError(true)
+      setTimeout(() => setShowPhoneError(false), 5000)
+      return false
     }
+    return true
+  }
 
-    api.sendMail()
-
-    console.log(showError)
+  const validateEmailAddress = () => {
+    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test((email))){
+      return true
+    }
+    else{
+      setShowEmailError(true)
+      setTimeout(() => setShowEmailError(false), 5000)
+      return false
+    }
   }
 
   return (
@@ -81,8 +101,10 @@ const Contact = () => {
           </div>
 
           <ActionContainer>
-            {/* <ErrorMessage>Phone number must be between 8 and 12 numbers</ErrorMessage> */}
-            {/* <ErrorMessage>Email must be a valid email</ErrorMessage> */}
+            {showPhoneError === true && (
+              <ErrorMessage>Phone number must be between 8 and 12 numbers</ErrorMessage>
+            )}
+            {showEmailError === true && <ErrorMessage>Email must be a valid email</ErrorMessage>}
 
             <SendButton disabled={loading} onClick={sendEmailWithClientInfo}>
               {loading && <IosSpinner style={{ marginRight: 3 }} />}
@@ -119,6 +141,8 @@ const SendButton = styled(Button)`
   margin-right: 0;
   padding-right: 0;
   padding-left: 0;
+
+  opacity: ${props => props.disabled ? 0.6 : 1};
 
   display: flex;
   align-items: center;
