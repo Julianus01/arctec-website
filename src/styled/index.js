@@ -58,7 +58,7 @@ const Button = styled.button`
   }
 `
 
-const Label = styled.label`
+export const Label = styled.label`
   font-size: 20px;
   color: #afafaf;
   margin-bottom: 10px;
