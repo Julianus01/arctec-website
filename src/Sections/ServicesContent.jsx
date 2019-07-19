@@ -221,7 +221,7 @@ export const WebServices = () => {
   const menuItems = Menu(webItems, selected)
 
   return (
-    <React.Fragment style={{width:'113%', marginLeft: '-4%'}}>
+    <React.Fragment>
       {width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
       {width > "930" && (
         <ScrollMenu

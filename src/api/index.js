@@ -1,10 +1,13 @@
-const sendMail = () => {
-    console.log("sending Mail")
-    return(
-        new Promise(resolve => setTimeout(resolve, 2000))
-    )
-}
+import axios from "axios"
+
+const sendMail = ({ from, to, subject, content }) =>
+  axios.post("//localhost:3001/sendMail", {
+    from,
+    to,
+    subject,
+    content
+  })
 
 export default {
-    sendMail
+  sendMail
 }

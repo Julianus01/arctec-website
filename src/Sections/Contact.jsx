@@ -1,15 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { Title, Input, Text, Subtitle, Button, Label } from "../styled"
 import { Phone, Mail, ZoomIn, Sliders, ZoomOut } from "react-feather"
 import IosSpinner from "./IosSpinner"
 import api from "../api"
 import Rodal from "rodal"
-import "rodal/lib/rodal.css"
-import { async } from "q"
-import { useEffect } from "react"
-
-const wait = timer => new Promise(resolve => setTimeout(resolve, timer))
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window
@@ -42,7 +37,7 @@ const Contact = () => {
   const [showPhoneError, setShowPhoneError] = useState(false)
   const [showEmailError, setShowEmailError] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
 
   const closeModal = () => {
     setShowModal(false)
@@ -69,23 +64,38 @@ const Contact = () => {
   const sendEmailWithClientInfo = async () => {
     if (contactChoice === "email" && validateEmailAddress() === true) {
       setLoading(true)
-      setTimeout(() => setLoading(false), 5000)
-      await wait(5000)
+      await api.sendMail({
+        from: "iulian.crisan@arctec.ro",
+        to: email,
+        subject: "Arctec Reply",
+        content: "Thank you for your interest , we'll be in touch soon!"
+      })
+      await api.sendMail({
+        from: "iulian.crisan@arctec.ro",
+        to: "sebyumt@yahoo.com",
+        subject: "Arctec Website email address",
+        content: email
+      })
+
       setShowModal(true)
+      setLoading(false)
       setTimeout(() => closeModal(), 5000)
     }
 
-    if(contactChoice === "phone" && validatePhoneNumber() === true){
-    setLoading(true)
-    setTimeout(() => setLoading(false), 5000)
-    await wait(5000)
-    setShowModal(true)
-    // setTimeout(() => closeModal(), 5000)
-    
-  }
+    if (contactChoice === "phone" && validatePhoneNumber() === true) {
+      setLoading(true)
+      await api.sendMail({
+        from: "iulian.crisan@arctec.ro",
+        to: "sebyumt@yahoo.com",
+        subject: "Arctec Website phone number",
+        content: phoneNumber
+      })
+      setShowModal(true)
+      setLoading(false)
+      setTimeout(() => closeModal(), 5000)
+    }
 
-  return
-
+    return
   }
 
   const validatePhoneNumber = () => {
@@ -115,28 +125,27 @@ const Contact = () => {
       <Wrapper>
         {width <= "750" && (
           <React.Fragment>
-          <Rodal
-            visible={showModal}
-            onClose={closeModal}
-            showCloseButton={false}
-            animation="slideUp"
-            width="fit-content"
-            height="100"
-            customStyles={{
-              maxWidth: "1400px",
-              top: "50%",
-              marginLeft: "5px",
-              marginRight: "5px",
-              backgroundImage:
-                "-webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%)"
-            }}
-          >
-            {contactChoice === "phone" && <Modal>We recieved your phone number !</Modal>}
-            {contactChoice === "email" && <Modal>We recieved your email !</Modal>}
-            <div>We'll keep in touch</div>
-            <CloseModalButton onClick={closeModal}>Close</CloseModalButton>
-          </Rodal>
-          
+            <Rodal
+              visible={showModal}
+              onClose={closeModal}
+              showCloseButton={false}
+              animation="slideUp"
+              width="fit-content"
+              height="100"
+              customStyles={{
+                maxWidth: "1400px",
+                top: "50%",
+                marginLeft: "5px",
+                marginRight: "5px",
+                backgroundImage:
+                  "-webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%)"
+              }}
+            >
+              {contactChoice === "phone" && <Modal>We recieved your phone number !</Modal>}
+              {contactChoice === "email" && <Modal>We recieved your email !</Modal>}
+              <div>We'll keep in touch</div>
+              <CloseModalButton onClick={closeModal}>Close</CloseModalButton>
+            </Rodal>
           </React.Fragment>
         )}
 
@@ -145,8 +154,8 @@ const Contact = () => {
             visible={showModal}
             onClose={closeModal}
             animation="slideUp"
-            width="400"
-            height="100"
+            width={400}
+            height={100}
             customStyles={{
               maxWidth: "1400px",
               left: "50%",
@@ -296,12 +305,12 @@ const Modal = styled.p`
   align-content: center;
 `
 const CloseModalButton = styled.button`
-width: 100%;
-height: 30px; 
-background-color: #afafaf;
- bottom: -20%; 
- position: absolute;
- border: 0;
- left:0;
- right:0;
+  width: 100%;
+  height: 30px;
+  background-color: #afafaf;
+  bottom: -20%;
+  position: absolute;
+  border: 0;
+  left: 0;
+  right: 0;
 `
