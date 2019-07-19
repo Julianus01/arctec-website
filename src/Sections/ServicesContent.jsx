@@ -221,7 +221,7 @@ export const WebServices = () => {
   const menuItems = Menu(webItems, selected)
 
   return (
-    <React.Fragment>
+    <React.Fragment style={{width:'113%', marginLeft: '-4%'}}>
       {width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
       {width > "930" && (
         <ScrollMenu
@@ -229,8 +229,9 @@ export const WebServices = () => {
             whiteSpace: "normal",
             display: "flex",
             cursor: "grab",
-            overflowX: 'hidden'
+            overflowX: 'hidden',
           }}
+          menuStyle={{width: "110%", marginLeft: "-6%"}}
           itemStyle={{ outline: "none" }}
           itemClassActive={"active"}
           translate={-10}
@@ -273,6 +274,7 @@ export const MobileServices = () => {
             display: "flex",
             cursor: "grab"
           }}
+          menuStyle={{width: "110%", marginLeft: "-6%"}}
           itemStyle={{ outline: "none" }}
           itemClassActive={"active"}
           translate={-10}
