@@ -177,29 +177,27 @@ const mobileItems = [
   }
 ]
 
-
-
 function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
+  const { innerWidth: width, innerHeight: height } = window
   return {
     width,
     height
-  };
+  }
 }
 
 export default function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
 
   useEffect(() => {
     function handleResize() {
-      setWindowDimensions(getWindowDimensions());
+      setWindowDimensions(getWindowDimensions())
     }
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
-  return windowDimensions;
+  return windowDimensions
 }
 
 const Menu = (list, selected) =>
@@ -214,7 +212,7 @@ const MenuItem = ({ render }) => {
 
 export const WebServices = () => {
   const [selected, setSelected] = useState(1)
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
 
   const onSelect = key => {
     setSelected(key)
@@ -223,34 +221,41 @@ export const WebServices = () => {
   const menuItems = Menu(webItems, selected)
 
   return (
-    <React.Fragment >
-
-      { width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
-      { width > "930" && 
-
-      <ScrollMenu
-        innerWrapperStyle={{
-          whiteSpace: "normal",
-          display: "flex",
-          cursor: "grab",
-        }}
-        itemStyle={{ outline: "none" }}
-        itemClassActive={"active"}
-        translate={-10}
-        data={menuItems}
-        selected={selected}
-        onSelect={onSelect}
-        arrowLeft={<ArrowDiv><ChevronLeft size={50} style={{ color: "white", size: '100px'}} /> </ArrowDiv>}
-        arrowRight={<ArrowDiv><ChevronRight size={50} style={{ color: "white"}} /> </ArrowDiv>}
-      />
-      }
+    <React.Fragment>
+      {width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
+      {width > "930" && (
+        <ScrollMenu
+          innerWrapperStyle={{
+            whiteSpace: "normal",
+            display: "flex",
+            cursor: "grab",
+            overflowX: 'hidden'
+          }}
+          itemStyle={{ outline: "none" }}
+          itemClassActive={"active"}
+          translate={-10}
+          data={menuItems}
+          selected={selected}
+          onSelect={onSelect}
+          arrowLeft={
+            <ArrowDiv>
+              <ChevronLeft size={50} style={{ color: "white", size: "100px" }} />{" "}
+            </ArrowDiv>
+          }
+          arrowRight={
+            <ArrowDiv>
+              <ChevronRight size={50} style={{ color: "white" }} />{" "}
+            </ArrowDiv>
+          }
+        />
+      )}
     </React.Fragment>
   )
 }
 
 export const MobileServices = () => {
   const [selected, setSelected] = useState(1)
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
 
   const onSelect = key => {
     setSelected(key)
@@ -259,27 +264,33 @@ export const MobileServices = () => {
   const menuItems = Menu(mobileItems, selected)
 
   return (
-    <React.Fragment >
-
-      { width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
-      { width > "930" && 
-
-      <ScrollMenu
-        innerWrapperStyle={{
-          whiteSpace: "normal",
-          display: "flex",
-          cursor: "grab",
-        }}
-        itemStyle={{ outline: "none" }}
-        itemClassActive={"active"}
-        translate={-10}
-        data={menuItems}
-        selected={selected}
-        onSelect={onSelect}
-        arrowLeft={<ArrowDiv><ChevronLeft size={50} style={{ color: "white", size: '100px'}} /> </ArrowDiv>}
-        arrowRight={<ArrowDiv><ChevronRight size={50} style={{ color: "white"}} /> </ArrowDiv>}
-      />
-      }
+    <React.Fragment>
+      {width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
+      {width > "930" && (
+        <ScrollMenu
+          innerWrapperStyle={{
+            whiteSpace: "normal",
+            display: "flex",
+            cursor: "grab"
+          }}
+          itemStyle={{ outline: "none" }}
+          itemClassActive={"active"}
+          translate={-10}
+          data={menuItems}
+          selected={selected}
+          onSelect={onSelect}
+          arrowLeft={
+            <ArrowDiv>
+              <ChevronLeft size={50} style={{ color: "white", size: "100px" }} />{" "}
+            </ArrowDiv>
+          }
+          arrowRight={
+            <ArrowDiv>
+              <ChevronRight size={50} style={{ color: "white" }} />{" "}
+            </ArrowDiv>
+          }
+        />
+      )}
     </React.Fragment>
   )
 }
@@ -311,7 +322,6 @@ const IconGroup = styled.div`
   margin-bottom: 20px;
 `
 const ArrowDiv = styled.div`
-
   display: flex;
   justify-content: center;
   align-content: center;
@@ -319,5 +329,4 @@ const ArrowDiv = styled.div`
   padding: 10px;
   margin-right: 30px;
   margin-left: 30px;
-
 `

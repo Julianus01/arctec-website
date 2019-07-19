@@ -73,14 +73,19 @@ const Contact = () => {
       await wait(5000)
       setShowModal(true)
       setTimeout(() => closeModal(), 5000)
-
-      return
     }
+
+    if(contactChoice === "phone" && validatePhoneNumber() === true){
     setLoading(true)
     setTimeout(() => setLoading(false), 5000)
     await wait(5000)
     setShowModal(true)
     // setTimeout(() => closeModal(), 5000)
+    
+  }
+
+  return
+
   }
 
   const validatePhoneNumber = () => {
@@ -98,6 +103,7 @@ const Contact = () => {
     if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
       return true
     }
+
     setShowEmailError(true)
     setTimeout(() => setShowEmailError(false), 5000)
 
@@ -145,7 +151,7 @@ const Contact = () => {
               maxWidth: "1400px",
               left: "50%",
               right: "50%",
-              top: "80%",
+              top: "50%",
               backgroundImage:
                 "-webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%)"
             }}
@@ -229,6 +235,10 @@ const SendButton = styled(Button)`
   margin-right: 0;
   padding-right: 0;
   padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 2px;
+  height: 80px;
 
   opacity: ${props => (props.disabled ? 0.6 : 1)};
 
