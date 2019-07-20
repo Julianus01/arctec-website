@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9543347c510faeb03da47b6dde90f867",
+    "revision": "33e2bcbfabb43c944e66c86e8d1de565",
     "url": "/arctec-website/index.html"
   },
   {
-    "revision": "e7dfb9caf1d8dc3ce6f3",
-    "url": "/arctec-website/static/css/2.b96c2c02.chunk.css"
+    "revision": "6a564693ad9ef6fa6da1",
+    "url": "/arctec-website/static/css/2.f75cb3e3.chunk.css"
   },
   {
-    "revision": "9024e8919e0ce67c48da",
-    "url": "/arctec-website/static/css/main.87fe1b08.chunk.css"
+    "revision": "ab6536b2dcd03ce7c193",
+    "url": "/arctec-website/static/css/main.56f4e863.chunk.css"
   },
   {
-    "revision": "e7dfb9caf1d8dc3ce6f3",
-    "url": "/arctec-website/static/js/2.7f254130.chunk.js"
+    "revision": "6a564693ad9ef6fa6da1",
+    "url": "/arctec-website/static/js/2.6c386b15.chunk.js"
   },
   {
-    "revision": "9024e8919e0ce67c48da",
-    "url": "/arctec-website/static/js/main.e8bbca5a.chunk.js"
+    "revision": "ab6536b2dcd03ce7c193",
+    "url": "/arctec-website/static/js/main.1e3fcd41.chunk.js"
   },
   {
     "revision": "065d2b765e04d75f67ca",
@@ -34,10 +34,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "01207254c6b273c9d3bbf74d789b8b6e",
     "url": "/arctec-website/static/media/hero-background.01207254.jpeg"
-  },
-  {
-    "revision": "4614480f1828eba30b8a4c86de78179c",
-    "url": "/arctec-website/static/media/iphoneX.4614480f.png"
   },
   {
     "revision": "e96d2bc1a50085d4e0492ab23e6c6235",
