@@ -120,6 +120,7 @@ const InputContainer = styled.div`
   align-items: center;
   background-color: #1a1a1a;
   padding: 13px 20px;
+  border-radius: 5px;
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
 `
 
