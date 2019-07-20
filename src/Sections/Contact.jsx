@@ -1,202 +1,112 @@
-import React, { useState, useEffect } from "react"
-import styled from "styled-components"
-import { Title, Input, Text, Subtitle, Button, Label } from "../styled"
-import { Phone, Mail, ZoomIn, Sliders, ZoomOut } from "react-feather"
-import IosSpinner from "./IosSpinner"
-import api from "../api"
-import Rodal from "rodal"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { Title, Input, Text, Subtitle, Button, Label } from '../styled'
+import { Phone, Mail } from 'react-feather'
+import IosSpinner from './IosSpinner'
+import { useTemporaryMessage } from '../hooks'
+import Popup from './Popup'
+import api from '../api'
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window
-  return {
-    width,
-    height
-  }
-}
-
-export function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions())
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  return windowDimensions
-}
+const wait = timer => new Promise(resolve => setTimeout(resolve, timer))
 
 const Contact = () => {
-  const [contactChoice, setContactChoice] = useState("phone")
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [email, setEmail] = useState("")
+  const [contactChoice, setContactChoice] = useState('phone')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
-  const [showPhoneError, setShowPhoneError] = useState(false)
-  const [showEmailError, setShowEmailError] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-  const { width } = useWindowDimensions()
-
-  const closeModal = () => {
-    setShowModal(false)
-  }
-
-  const onPhoneNumberChange = event => {
-    setPhoneNumber(event.target.value.replace(/\D/, ""))
-  }
-
-  const onEmailChange = event => {
-    setEmail(event.target.value)
-  }
+  const [error, showError, hideError] = useTemporaryMessage()
+  const [showPopup, setShowPopup] = useState(false)
 
   const onContactChoiceChange = () => {
-    if (contactChoice === "phone") {
-      setContactChoice("email")
-      setShowPhoneError(false)
+    setContactChoice(contactChoice === 'phone' ? 'email' : 'phone')
+    hideError()
+  }
+
+  const showSuccessPopup = () => {
+    setShowPopup(true)
+    setTimeout(() => setShowPopup(false), 5000)
+  }
+
+  const validatePhoneNumberAndSendMail = async () => {
+    if (phoneNumber.length < 6 || phoneNumber.length > 14) {
+      showError(`Phone number must be between 8 and 12 characters`)
       return
     }
-    setShowEmailError(false)
-    setContactChoice("phone")
+
+    hideError()
+    setLoading(true)
+
+    api.sendMail({
+      from: 'iulian.crisan@arctec.ro',
+      to: 'office@arctec.ro',
+      subject: 'New client from website',
+      html: `<p>Phone number of client is  ${phoneNumber}</p>`
+    })
+
+    await wait(2000)
+    setLoading(false)
+    showSuccessPopup()
   }
 
-  const sendEmailWithClientInfo = async () => {
-    if (contactChoice === "email" && validateEmailAddress() === true) {
-      setLoading(true)
-      await api.sendMail({
-        from: "iulian.crisan@arctec.ro",
-        to: email,
-        subject: "Arctec Reply",
-        content: "Thank you for your interest , we'll be in touch soon!"
-      })
-      await api.sendMail({
-        from: "iulian.crisan@arctec.ro",
-        to: "sebyumt@yahoo.com",
-        subject: "Arctec Website email address",
-        content: email
-      })
-
-      setShowModal(true)
-      setLoading(false)
-      setTimeout(() => closeModal(), 5000)
+  const validateEmailAddressAndSendMail = async () => {
+    if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+      showError(`Email must be a valid email`)
+      return
     }
 
-    if (contactChoice === "phone" && validatePhoneNumber() === true) {
-      setLoading(true)
-      await api.sendMail({
-        from: "iulian.crisan@arctec.ro",
-        to: "sebyumt@yahoo.com",
-        subject: "Arctec Website phone number",
-        content: phoneNumber
-      })
-      setShowModal(true)
-      setLoading(false)
-      setTimeout(() => closeModal(), 5000)
-    }
+    hideError()
+    setLoading(true)
 
-    return
+    api.sendMail({
+      from: 'iulian.crisan@arctec.ro',
+      to: 'office@arctec.ro',
+      subject: 'New client from website',
+      html: `<p>Email of client is  ${email}</p>`
+    })
+
+    await wait(2000)
+    setLoading(false)
+    showSuccessPopup()
   }
 
-  const validatePhoneNumber = () => {
-    if (phoneNumber.length < 8 || phoneNumber.length > 12) {
-      setShowPhoneError(true)
-      setTimeout(() => setShowPhoneError(false), 5000)
-
-      return false
-    }
-
-    return true
-  }
-
-  const validateEmailAddress = () => {
-    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
-      return true
-    }
-
-    setShowEmailError(true)
-    setTimeout(() => setShowEmailError(false), 5000)
-
-    return false
+  const sendMail = () => {
+    contactChoice === 'phone' && validatePhoneNumberAndSendMail()
+    contactChoice === 'email' && validateEmailAddressAndSendMail()
   }
 
   return (
     <Section>
       <Wrapper>
-        {width <= "750" && (
-          <React.Fragment>
-            <Rodal
-              visible={showModal}
-              onClose={closeModal}
-              showCloseButton={false}
-              animation="slideUp"
-              width="fit-content"
-              height="100"
-              customStyles={{
-                maxWidth: "1400px",
-                top: "50%",
-                marginLeft: "5px",
-                marginRight: "5px",
-                backgroundImage:
-                  "-webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%)"
-              }}
-            >
-              {contactChoice === "phone" && <Modal>We recieved your phone number !</Modal>}
-              {contactChoice === "email" && <Modal>We recieved your email !</Modal>}
-              <div>We'll keep in touch</div>
-              <CloseModalButton onClick={closeModal}>Close</CloseModalButton>
-            </Rodal>
-          </React.Fragment>
-        )}
-
-        {width > "750" && (
-          <Rodal
-            visible={showModal}
-            onClose={closeModal}
-            animation="slideUp"
-            width={400}
-            height={100}
-            customStyles={{
-              maxWidth: "1400px",
-              left: "50%",
-              right: "50%",
-              top: "50%",
-              backgroundImage:
-                "-webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%)"
-            }}
-          >
-            {contactChoice === "phone" && <Modal>We recieved your phone number !</Modal>}
-            {contactChoice === "email" && <Modal>We recieved your email !</Modal>}
-            <div>We'll keep in touch</div>
-          </Rodal>
-        )}
-
         <Title>Work with us</Title>
-
         <Content>
           <Label>Leave an email or phone number, we'll be in touch</Label>
-          <div style={{ display: "flex" }}>
+
+          <div style={{ display: 'flex' }}>
             <ChoiceButton onClick={onContactChoiceChange}>
-              {contactChoice === "email" && <Phone size={30} color="#afafaf" />}
-              {contactChoice === "phone" && <Mail size={30} color="#afafaf" />}
+              {contactChoice === 'email' && <Phone color="#afafaf" />}
+              {contactChoice === 'phone' && <Mail color="#afafaf" />}
             </ChoiceButton>
 
-            {contactChoice === "phone" && (
-              <Input
+            {contactChoice === 'phone' && (
+              <StyledInput
                 type="tel"
                 value={phoneNumber}
-                onChange={onPhoneNumberChange}
-                style={{ width: "100%" }}
+                disabled={loading}
+                onKeyDown={({ key }) => key === 'Enter' && sendMail()}
+                onChange={({ target: { value } }) => setPhoneNumber(value.replace(/\D/, ''))}
+                style={{ width: '100%' }}
                 leftIcon={<Phone size={30} color="#afafaf" />}
                 placeholder="Phone number..."
               />
             )}
 
-            {contactChoice === "email" && (
-              <Input
+            {contactChoice === 'email' && (
+              <StyledInput
                 value={email}
-                onChange={onEmailChange}
-                style={{ width: "100%" }}
+                disabled={loading}
+                onKeyDown={({ key }) => key === 'Enter' && sendMail()}
+                onChange={({ target: { value } }) => setEmail(value)}
+                style={{ width: '100%' }}
                 leftIcon={<Mail size={30} color="#afafaf" />}
                 placeholder="Email address..."
               />
@@ -204,16 +114,22 @@ const Contact = () => {
           </div>
 
           <ActionContainer>
-            {showPhoneError === true && (
-              <ErrorMessage>Phone number must be between 8 and 12 numbers</ErrorMessage>
-            )}
-            {showEmailError === true && <ErrorMessage>Email must be a valid email</ErrorMessage>}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
 
-            <SendButton disabled={loading} onClick={sendEmailWithClientInfo}>
+            <SendButton disabled={loading} onClick={sendMail}>
               {loading && <IosSpinner style={{ marginRight: 3 }} />}
               Send
             </SendButton>
           </ActionContainer>
+
+          <Popup showPopup={showPopup} onClose={() => setShowPopup(false)}>
+            <Notification>
+              <Subtitle style={{ color: 'white' }}>We received your contact!</Subtitle>
+              <Text style={{ color: 'white' }}>
+                We'll be in touch soon to have a discussion in more detail :)
+              </Text>
+            </Notification>
+          </Popup>
 
           <Subtitle>Or contact us at</Subtitle>
           <Text style={{ marginBottom: 5 }}>office@arctec.ro</Text>
@@ -250,7 +166,6 @@ const SendButton = styled(Button)`
   height: 80px;
 
   opacity: ${props => (props.disabled ? 0.6 : 1)};
-
   display: flex;
   align-items: center;
 
@@ -269,6 +184,16 @@ const ChoiceButton = styled(Button)`
   border-radius: 5px;
   transition: transform 0.15s ease-in-out;
 
+  svg {
+    width: 30px;
+    height: 30px;
+
+    @media screen and (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   :hover {
     transform: scale(1.05);
   }
@@ -280,6 +205,7 @@ const ActionContainer = styled.div`
 
 const ErrorMessage = styled(Text)`
   flex: 1;
+  font-style: italic;
   margin-right: 50px;
   margin-top: 25px;
 `
@@ -299,18 +225,30 @@ const Content = styled.div`
   flex-direction: column;
   max-width: 500px;
 `
-const Modal = styled.p`
-  display: flex;
-  justify-content: center;
-  align-content: center;
+
+const Notification = styled.div`
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 15px;
+  max-width: 400px;
+  align-items: center;
+  background-color: rgba(26, 26, 26, 0.99);
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `
-const CloseModalButton = styled.button`
-  width: 100%;
-  height: 30px;
-  background-color: #afafaf;
-  bottom: -20%;
-  position: absolute;
-  border: 0;
-  left: 0;
-  right: 0;
+
+const StyledInput = styled(Input)`
+  svg {
+    width: 30px;
+    height: 30px;
+
+    @media screen and (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `

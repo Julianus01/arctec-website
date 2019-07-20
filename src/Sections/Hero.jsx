@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import heroImgPath from "../assets/images/hero-background.jpeg"
-import Fade from "react-reveal/Fade"
+import React from 'react'
+import styled from 'styled-components'
+import heroImgPath from '../assets/images/hero-background.jpeg'
+import Fade from 'react-reveal/Fade'
 
 const Hero = () => (
   <Fade>
@@ -35,7 +35,7 @@ const Absolute = styled.div`
   left: 0;
 `
 
-const ParticlesDiv = styled.div.attrs({ id: "particles-div" })`
+const ParticlesDiv = styled.div.attrs({ id: 'particles-div' })`
   height: 100%;
   width: 100%;
 `
@@ -84,7 +84,7 @@ const CompanyName = styled.h1`
   font-family: Anurati;
   letter-spacing: 0.3em;
   font-size: 200px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.55);
   margin-left: 10px;
 
   @media screen and (max-width: 1300px) {

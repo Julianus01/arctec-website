@@ -1,11 +1,13 @@
-import axios from "axios"
+import axios from 'axios'
 
-const sendMail = ({ from, to, subject, content }) =>
-  axios.post("//localhost:3001/sendMail", {
+const URL = `http://localhost:3001/ms-mail-sender`
+
+const sendMail = ({ from, to, subject, html }) =>
+  axios.post(`${URL}/sendMail`, {
     from,
     to,
     subject,
-    content
+    html
   })
 
 export default {

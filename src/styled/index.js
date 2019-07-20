@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 const Title = styled.h1`
   font-size: 80px;
@@ -120,14 +120,15 @@ const InputContainer = styled.div`
   align-items: center;
   background-color: #1a1a1a;
   padding: 13px 20px;
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
 `
 
-const Input = ({ label, placeholder, leftIcon, className, style, ...rest }) => (
+const Input = ({ label, placeholder, leftIcon, className, disabled, style, ...rest }) => (
   <InputWrapper className={className} style={style}>
     {label && <Label>{label}</Label>}
-    <InputContainer>
+    <InputContainer disabled={disabled}>
       {leftIcon && (
-        <div style={{ marginRight: 13, display: "flex", alignItems: "center" }}>{leftIcon}</div>
+        <div style={{ marginRight: 13, display: 'flex', alignItems: 'center' }}>{leftIcon}</div>
       )}
       <InputStyled {...rest} placeholder={placeholder} />
     </InputContainer>
@@ -142,7 +143,7 @@ const Textarea = ({ label, placeholder, ...rest }) => (
 )
 
 const TabPressable = styled.button`
-  color: ${({ active }) => (active ? "white" : "#373737")};
+  color: ${({ active }) => (active ? 'white' : '#373737')};
   border: 0;
   background-color: transparent;
   font-size: 25px;

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
-import styled from "styled-components"
-import { Subtitle, Text } from "../styled"
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { Subtitle, Text } from '../styled'
 import {
   Package,
   Database,
@@ -12,8 +12,8 @@ import {
   Shield,
   ChevronLeft,
   ChevronRight
-} from "react-feather"
-import ScrollMenu from "react-horizontal-scrolling-menu"
+} from 'react-feather'
+import ScrollMenu from 'react-horizontal-scrolling-menu'
 
 const webItems = [
   {
@@ -154,7 +154,7 @@ const mobileItems = [
         <Subtitle>Secure</Subtitle>
         <Text>
           Your phone can keep pictures, phone numbers, videos and so much more…but can it keep it
-          private? We assure a secured and private way of utilizing applications.
+          private? We assure security and privacy
         </Text>
       </Service>
     )
@@ -193,8 +193,8 @@ export default function useWindowDimensions() {
       setWindowDimensions(getWindowDimensions())
     }
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return windowDimensions
@@ -222,30 +222,30 @@ export const WebServices = () => {
 
   return (
     <React.Fragment>
-      {width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
-      {width > "930" && (
+      {width <= '930' && <React.Fragment>{menuItems}</React.Fragment>}
+      {width > '930' && (
         <ScrollMenu
           innerWrapperStyle={{
-            whiteSpace: "normal",
-            display: "flex",
-            cursor: "grab",
-            overflowX: 'hidden',
+            whiteSpace: 'normal',
+            display: 'flex',
+            cursor: 'grab',
+            overflowX: 'hidden'
           }}
-          menuStyle={{width: "110%", marginLeft: "-6%"}}
-          itemStyle={{ outline: "none" }}
-          itemClassActive={"active"}
+          menuStyle={{ width: '110%', marginLeft: '-6%' }}
+          itemStyle={{ outline: 'none' }}
+          itemClassActive={'active'}
           translate={-10}
           data={menuItems}
           selected={selected}
           onSelect={onSelect}
           arrowLeft={
             <ArrowDiv>
-              <ChevronLeft size={50} style={{ color: "white", size: "100px" }} />{" "}
+              <ChevronLeft size={50} style={{ color: 'white', size: '100px' }} />{' '}
             </ArrowDiv>
           }
           arrowRight={
             <ArrowDiv>
-              <ChevronRight size={50} style={{ color: "white" }} />{" "}
+              <ChevronRight size={50} style={{ color: 'white' }} />{' '}
             </ArrowDiv>
           }
         />
@@ -266,29 +266,29 @@ export const MobileServices = () => {
 
   return (
     <React.Fragment>
-      {width <= "930" && <React.Fragment>{menuItems}</React.Fragment>}
-      {width > "930" && (
+      {width <= '930' && <React.Fragment>{menuItems}</React.Fragment>}
+      {width > '930' && (
         <ScrollMenu
           innerWrapperStyle={{
-            whiteSpace: "normal",
-            display: "flex",
-            cursor: "grab"
+            whiteSpace: 'normal',
+            display: 'flex',
+            cursor: 'grab'
           }}
-          menuStyle={{width: "110%", marginLeft: "-6%"}}
-          itemStyle={{ outline: "none" }}
-          itemClassActive={"active"}
+          menuStyle={{ width: '110%', marginLeft: '-6%' }}
+          itemStyle={{ outline: 'none' }}
+          itemClassActive={'active'}
           translate={-10}
           data={menuItems}
           selected={selected}
           onSelect={onSelect}
           arrowLeft={
             <ArrowDiv>
-              <ChevronLeft size={50} style={{ color: "white", size: "100px" }} />{" "}
+              <ChevronLeft size={50} style={{ color: 'white', size: '100px' }} />{' '}
             </ArrowDiv>
           }
           arrowRight={
             <ArrowDiv>
-              <ChevronRight size={50} style={{ color: "white" }} />{" "}
+              <ChevronRight size={50} style={{ color: 'white' }} />{' '}
             </ArrowDiv>
           }
         />
