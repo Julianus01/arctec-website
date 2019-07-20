@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react"
-import Loading from "./Loading"
+import React, { useState, useEffect } from 'react'
+import Loading from './Loading'
 
 // Sections
-import Hero from "./Sections/Hero"
-import Vision from "./Sections/Vision"
-import Services from "./Sections/Services"
-import Contact from "./Sections/Contact"
-import Qualities from "./Sections/Qualities"
-import ScrollTransition from "./Sections/ScrollTransition"
+import Hero from './Sections/Hero'
+import Vision from './Sections/Vision'
+import Services from './Sections/Services'
+import Contact from './Sections/Contact'
+import Qualities from './Sections/Qualities'
+import ScrollTransition from './Sections/ScrollTransition'
 
 const wait = timer => new Promise(resolve => setTimeout(resolve, timer))
 
@@ -26,7 +26,7 @@ const App = () => {
     triggerLoadingAnimation()
   }, [])
 
-  // if (!showApp) return <Loading loading={loading} />
+  if (!showApp) return <Loading loading={loading} />
 
   return (
     <React.Fragment>
