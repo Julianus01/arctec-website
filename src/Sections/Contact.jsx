@@ -189,8 +189,8 @@ const ChoiceButton = styled(Button)`
     height: 30px;
 
     @media screen and (max-width: 768px) {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
     }
   }
 
@@ -247,8 +247,8 @@ const StyledInput = styled(Input)`
     height: 30px;
 
     @media screen and (max-width: 768px) {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
     }
   }
 `

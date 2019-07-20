@@ -17,7 +17,7 @@ const ScrollTransition = () => (
 
           {progress > 0.5 && (
             <ScreenAbsolute style={{ opacity: progress }}>
-              <BigWord word='Quality.' />
+              <BigWord word="Quality." />
             </ScreenAbsolute>
           )}
         </Container>
@@ -33,6 +33,11 @@ const Container = styled.section`
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 20vh;
+    margin-bottom: calc(var(--vh, 1vh) * 20);
+  }
 `
 
 const ScreenAbsolute = styled.div`

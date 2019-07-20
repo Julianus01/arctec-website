@@ -9,11 +9,8 @@ import {
   UserCheck,
   Zap,
   BatteryCharging,
-  Shield,
-  ChevronLeft,
-  ChevronRight
+  Shield
 } from 'react-feather'
-import ScrollMenu from 'react-horizontal-scrolling-menu'
 
 const webItems = [
   {
@@ -200,99 +197,26 @@ export default function useWindowDimensions() {
   return windowDimensions
 }
 
-const Menu = (list, selected) =>
-  list.map(el => {
-    const { key, render } = el
-    return <MenuItem render={render} key={key} selected={selected} />
-  })
-
-const MenuItem = ({ render }) => {
-  return <React.Fragment>{render()}</React.Fragment>
-}
-
 export const WebServices = () => {
-  const [selected, setSelected] = useState(1)
-  const { width } = useWindowDimensions()
-
-  const onSelect = key => {
-    setSelected(key)
-  }
-
-  const menuItems = Menu(webItems, selected)
-
   return (
     <React.Fragment>
-      {width <= '930' && <React.Fragment>{menuItems}</React.Fragment>}
-      {width > '930' && (
-        <ScrollMenu
-          innerWrapperStyle={{
-            whiteSpace: 'normal',
-            display: 'flex',
-            cursor: 'grab',
-            overflowX: 'hidden'
-          }}
-          menuStyle={{ width: '110%', marginLeft: '-6%' }}
-          itemStyle={{ outline: 'none' }}
-          itemClassActive={'active'}
-          translate={-10}
-          data={menuItems}
-          selected={selected}
-          onSelect={onSelect}
-          arrowLeft={
-            <ArrowDiv>
-              <ChevronLeft size={50} style={{ color: 'white', size: '100px' }} />{' '}
-            </ArrowDiv>
-          }
-          arrowRight={
-            <ArrowDiv>
-              <ChevronRight size={50} style={{ color: 'white' }} />{' '}
-            </ArrowDiv>
-          }
-        />
-      )}
+      <FakeMargin />
+      {webItems.map(item => (
+        <React.Fragment key={item.key}>{item.render()}</React.Fragment>
+      ))}
+      <FakeMargin />
     </React.Fragment>
   )
 }
 
 export const MobileServices = () => {
-  const [selected, setSelected] = useState(1)
-  const { width } = useWindowDimensions()
-
-  const onSelect = key => {
-    setSelected(key)
-  }
-
-  const menuItems = Menu(mobileItems, selected)
-
   return (
     <React.Fragment>
-      {width <= '930' && <React.Fragment>{menuItems}</React.Fragment>}
-      {width > '930' && (
-        <ScrollMenu
-          innerWrapperStyle={{
-            whiteSpace: 'normal',
-            display: 'flex',
-            cursor: 'grab'
-          }}
-          menuStyle={{ width: '110%', marginLeft: '-6%' }}
-          itemStyle={{ outline: 'none' }}
-          itemClassActive={'active'}
-          translate={-10}
-          data={menuItems}
-          selected={selected}
-          onSelect={onSelect}
-          arrowLeft={
-            <ArrowDiv>
-              <ChevronLeft size={50} style={{ color: 'white', size: '100px' }} />{' '}
-            </ArrowDiv>
-          }
-          arrowRight={
-            <ArrowDiv>
-              <ChevronRight size={50} style={{ color: 'white' }} />{' '}
-            </ArrowDiv>
-          }
-        />
-      )}
+      <FakeMargin />
+      {mobileItems.map(item => (
+        <React.Fragment key={item.key}>{item.render()}</React.Fragment>
+      ))}
+      <FakeMargin />
     </React.Fragment>
   )
 }
@@ -309,7 +233,6 @@ const Service = styled.div`
   border-radius: 10px;
   max-height: 320px;
   border: 0;
-
   background-image: -webkit-linear-gradient(top, rgba(38, 38, 38, 0.7) 0%, #000000 100%);
 
   @media screen and (max-width: 768px) {
@@ -323,12 +246,9 @@ const IconGroup = styled.div`
   display: flex;
   margin-bottom: 20px;
 `
-const ArrowDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  border-radius: 50px;
-  padding: 10px;
-  margin-right: 30px;
-  margin-left: 30px;
+
+const FakeMargin = styled.div`
+  max-height: 300px;
+  flex: 0 0 10px;
+  background-color: black;
 `

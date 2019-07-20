@@ -1,10 +1,10 @@
 @font-face {
-  src: url("./assets/fonts/Anurati.otf");
+  src: url('./assets/fonts/Anurati.otf');
   font-family: Anurati;
 }
 
 @font-face {
-  src: url("./assets/fonts/Futura.ttf");
+  src: url('./assets/fonts/Futura.ttf');
   font-family: Futura;
 }
 
@@ -22,13 +22,40 @@ body {
   background-color: black;
 }
 
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: #cfcfcf;
+}
+
+body::-webkit-scrollbar-track {
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .fab {
   color: rgb(175, 175, 175);
   font-size: 50px;
 }
-
-

@@ -149,6 +149,8 @@ const TabPressable = styled.button`
   font-size: 25px;
   padding: 20px 80px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 
   :focus {
     outline: none;

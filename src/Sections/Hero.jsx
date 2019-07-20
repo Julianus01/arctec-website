@@ -84,7 +84,8 @@ const CompanyName = styled.h1`
   font-family: Anurati;
   letter-spacing: 0.3em;
   font-size: 200px;
-  color: rgba(255, 255, 255, 0.55);
+  color: white;
+  opacity: 0.6;
   margin-left: 10px;
 
   @media screen and (max-width: 1300px) {
