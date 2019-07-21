@@ -65,7 +65,7 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  width: 100%;
+  width: 95%;
   max-width: 1500px;
   margin: 0 auto;
   flex: 1;
@@ -77,6 +77,7 @@ const Content = styled.div`
   -ms-overflow-style: none;
 
   @media screen and (max-width: 768px) {
+    width: 100%;
     ::-webkit-scrollbar {
       display: none;
     }
@@ -120,6 +121,10 @@ const Content = styled.div`
 const Footer = styled.div`
   display: flex;
   max-width: 1400px;
-  width: 100%;
+  width: 90%;
   margin: auto;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `

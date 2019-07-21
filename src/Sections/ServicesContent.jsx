@@ -23,8 +23,8 @@ const webItems = [
 
         <Subtitle>Full package</Subtitle>
         <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorum eos amet
-          delectus officia
+          From concept, to design, to implementation, to market. We take care of the whole journey
+          in order to deliver.
         </Text>
       </Service>
     )
@@ -109,7 +109,7 @@ const mobileItems = [
         <Subtitle>Cross platform</Subtitle>
         <Text>
           iOS and Android may be two different mobile platforms, but their goal is the same, to
-          serve good applications. We do that for both of them.
+          serve great applications. We do that for both of them.
         </Text>
       </Service>
     )
@@ -150,7 +150,7 @@ const mobileItems = [
         </IconGroup>
         <Subtitle>Secure</Subtitle>
         <Text>
-          Your phone can keep pictures, phone numbers, videos and so much more…but can it keep it
+          Your phone can store pictures, phone numbers, videos and so much more…but can it keep it
           private? We assure security and privacy
         </Text>
       </Service>

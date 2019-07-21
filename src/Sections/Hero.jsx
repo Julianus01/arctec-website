@@ -87,6 +87,7 @@ const CompanyName = styled.h1`
   color: white;
   opacity: 0.6;
   margin-left: 10px;
+  pointer-events: none;
 
   @media screen and (max-width: 1300px) {
     font-size: 150px;

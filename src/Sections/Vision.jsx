@@ -1,18 +1,24 @@
-import React from "react"
-import styled from "styled-components"
-import { Title, Text } from "../styled"
-import Fade from "react-reveal/Fade"
+import React from 'react'
+import styled from 'styled-components'
+import { Title, Text } from '../styled'
+import Fade from 'react-reveal/Fade'
 
 const VisionSection = () => (
   <Section>
     <Fade bottom>
-      <Title>Vision</Title>
-      <Text style={{ maxWidth: 1000 }}>
-        In a world surrounded by software providing multiple ways of improving day to day life and
-        work productivity, our vision is to create the perfect combination of great ideas that solve
-        business needs, cutting edge design and experience, performance and reliability in order to
-        deliver the highest fitting product for your business.
-      </Text>
+      <React.Fragment>
+        <Title>Vision</Title>
+
+        <Description style={{ marginBottom: 20 }}>
+          Our vision is to create the perfect combination of great ideas that solve real needs,
+          cutting edge design and smooth user experience, performance and reliability in order to
+          deliver the highest fitting product for your business.
+        </Description>
+        <Description>
+          Nobody knows how far technology can take us in productivity and efficiency...we plan on
+          finding out.
+        </Description>
+      </React.Fragment>
     </Fade>
   </Section>
 )
@@ -34,4 +40,8 @@ const Section = styled.section`
     margin-bottom: 10vh;
     margin-bottom: calc(var(--vh, 1vh) * 10);
   }
+`
+
+const Description = styled(Text)`
+  max-width: 700px;
 `

@@ -133,7 +133,7 @@ const Contact = () => {
 
           <Subtitle>Or contact us at</Subtitle>
           <Text style={{ marginBottom: 5 }}>office@arctec.ro</Text>
-          <Text>0742 376 973</Text>
+          <Text>(0728) 987 957‬</Text>
         </Content>
       </Wrapper>
     </Section>

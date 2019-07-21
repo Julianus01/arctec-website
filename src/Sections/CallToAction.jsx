@@ -1,14 +1,12 @@
 import React from 'react'
 import { Title } from '../styled'
 import styled from 'styled-components'
-import roadImageSrc from '../assets/images/road.jpg'
+import navigationImageSrc from '../assets/images/navigation.jpeg'
 
 const CallToAction = () => (
   <Section>
     <Content>
-      <Title style={{ textAlign: 'center', marginBottom: 0 }}>
-        Steady. Surely. Ongoing
-      </Title>
+      <Title style={{ textAlign: 'center', marginBottom: 0 }}>Navigating towards ...</Title>
     </Content>
   </Section>
 )
@@ -30,12 +28,8 @@ const Section = styled.section`
 
   opacity: ${({ opacity }) => opacity};
 
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.95) 100%
-    ),
-    url(${() => roadImageSrc});
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.95) 100%),
+    url(${() => navigationImageSrc});
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;

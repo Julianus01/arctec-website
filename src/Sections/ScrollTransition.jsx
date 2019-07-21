@@ -34,6 +34,9 @@ const Container = styled.section`
   height: calc(var(--vh, 1vh) * 100);
   width: 100%;
 
+  margin-bottom: 10vh;
+  margin-bottom: calc(var(--vh, 1vh) * 10);
+
   @media screen and (max-width: 768px) {
     margin-bottom: 20vh;
     margin-bottom: calc(var(--vh, 1vh) * 20);
