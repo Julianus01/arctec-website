@@ -37,10 +37,13 @@ const Contact = () => {
     setLoading(true)
 
     api.sendMail({
-      from: 'iulian.crisan@arctec.ro',
+      from: 'office@arctec.ro',
       to: 'office@arctec.ro',
       subject: 'New client from website',
-      html: `<p>Phone number of client is  ${phoneNumber}</p>`
+      html: `<div>
+      <h1>New customer</h1>
+      <p>Phone number of client is  ${phoneNumber}</p>
+      </div>`
     })
 
     await wait(2000)
@@ -58,10 +61,24 @@ const Contact = () => {
     setLoading(true)
 
     api.sendMail({
-      from: 'iulian.crisan@arctec.ro',
+      from: 'office@arctec.ro',
       to: 'office@arctec.ro',
       subject: 'New client from website',
-      html: `<p>Email of client is  ${email}</p>`
+      html: `<div>
+      <h1>New customer</h1>
+      <p>Email of client is  ${email}</p>
+      </div>`
+    })
+
+    api.sendMail({
+      from: 'office@arctec.ro',
+      to: `${email}`,
+      subject: 'New client from website',
+      html: `<div>
+        <p>Hello</p>
+        <p>Thank you for getting in touch with us. One of our core members will contact you soon to discuss further how we can help you :)</p>
+        <p>Arctec team</p>
+      </div>`
     })
 
     await wait(2000)
