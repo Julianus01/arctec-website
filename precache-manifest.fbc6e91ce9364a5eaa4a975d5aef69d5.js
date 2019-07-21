@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d98f960ca566b7ae9c2fceff31a2e298",
+    "revision": "b4f9e4cb96e7bd5372c3b675982742f2",
     "url": "/arctec-website/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arctec-website/static/css/2.90655997.chunk.css"
   },
   {
-    "revision": "011c0bedd5806fc91e06",
+    "revision": "e942d8e3a1393332f5c7",
     "url": "/arctec-website/static/css/main.234aacf5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arctec-website/static/js/2.b826abfc.chunk.js"
   },
   {
-    "revision": "011c0bedd5806fc91e06",
-    "url": "/arctec-website/static/js/main.026cda84.chunk.js"
+    "revision": "e942d8e3a1393332f5c7",
+    "url": "/arctec-website/static/js/main.ead144b4.chunk.js"
   },
   {
     "revision": "065d2b765e04d75f67ca",
@@ -36,7 +36,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arctec-website/static/media/hero-background.01207254.jpeg"
   },
   {
-    "revision": "e96d2bc1a50085d4e0492ab23e6c6235",
-    "url": "/arctec-website/static/media/road.e96d2bc1.jpg"
+    "revision": "bcf6bd1d41e89d2bdc2c2f2fb9fb4619",
+    "url": "/arctec-website/static/media/navigation.bcf6bd1d.jpeg"
   }
 ]);
